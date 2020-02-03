@@ -4,8 +4,34 @@ Workshop material: Using R/tidyverse to analyze & visualize processed genomics d
 ## Overview
 
 ## Learning Objectives
+- **Part 1: Getting started**
+   - Installation and Setup
+   - Loading packages; looking at cheatsheets
+   - Data import
+   - Knowing your data: _basic data exploration_
+- **Part 2: Reshaping data with `tidyr`**
+   - Gather, Spread
+   - Unite, Separate
+- **Part 3: Data wrangling with `dplyr`**
+   - Filter
+   - Select
+   - Mutate
+   - Distinct and Arrange
+   - Group_by and Summarize
+   - More data wrangling
+- **Part 4: Visualizing tidy data with `ggplot`**
+   - Basics of ggplot
+   - Barplots and histograms
+   - Scatter plots
+   - Boxplots and violin plots
+   - Some data sleuthing!
+- **Part 5. Export and Wrap-up**
+   - Saving your plots
+   - Saving your data files
+   - Summary of everything that you learnt in the workshop!
 
-## R/RStudio Setup
+
+## Setup
 ### Before the Workshop Begins
 1. Install the following software if you don’t yet have them. If you do have these installed, skip to #2:
    1. **R** version 3.5+ (Current: 3.6.1) 
@@ -15,6 +41,7 @@ Workshop material: Using R/tidyverse to analyze & visualize processed genomics d
    `version`
 3. Check your **RStudio** version. It should be v1.2+
 Open RStudio. In the top menu bar click: RStudio > About RStudio > 
+4. Install **tidyverse** & **here**: `install.packages(c("tidyverse", "here"))`
 
 **Other Resources: Software Carpentry Video Tutorial for installing R and R Studio**
 
@@ -36,4 +63,28 @@ Or you can use your package manager (e.g. for Debian/Ubuntu run `sudo apt-get in
 Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/download/#download).
 
 ## Contact
-janani@msu.edu | @jananiravi
+- Webpage: <https://jananiravi.github.io>
+- Email: <janani@msu.edu>
+- Other ways to reach us: <https://jananiravi.github.io/#contact>
+
+### Acknowledgements
+- [Krishnan Lab](https://thekrishnanlab.org)
+- [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
+- [R-Ladies Chennai](https://meetup.com/rladies-chennai)
+
+## Additional resources
+- You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/tidyverse-genomics).
+- Other related workshops & useful cheatsheets: On [GitHub](http://github.com/rladies-eastlansing) & [Google Drive](http://bit.ly/rlel-meetup-presentations-gd).
+
+### Some awesome open-source books
+- Hands-On Programming with R: Grolemund #HOPR https://rstudio-education.github.io/hopr/
+- R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
+- R Programming for Data Science: Peng https://leanpub.com/rprogramming
+- Learning Statistics with R: Navarro https://learningstatisticswithr.com/book
+
+- #TidyTuesday challenges
+- gganimate: [thomasp85/gganimate](https://github.com/thomasp85/gganimate)
+- tidyexplain: [gadenbuie/tidyexplain](https://github.com/gadenbuie/tidyexplain)
+- Pipes (%>%): <datacamp.com/community/tutorials/pipe-r-tutorial>
+- Radix (theme for RMarkdown): https://rstudio.github.io/radix/
+- Google & [StackOverflow](https://stackoverflow.com/) are your best friends!
