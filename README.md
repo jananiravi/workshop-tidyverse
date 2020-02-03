@@ -5,16 +5,15 @@ Workshop material: Using R/tidyverse to analyze & visualize processed genomics d
 
 ## Learning Objectives
 - **Part 1: Getting started**
-   - Installation and Setup
-   - Loading packages; looking at cheatsheets
+   - Installation and Setup | Cheatsheets
+   - Loading packages
    - Data import
    - Knowing your data: _basic data exploration_
 - **Part 2: Reshaping data with `tidyr`**
    - Gather, Spread
    - Unite, Separate
 - **Part 3: Data wrangling with `dplyr`**
-   - Filter
-   - Select
+   - Filter, Select
    - Mutate
    - Distinct and Arrange
    - Group_by and Summarize
@@ -29,7 +28,6 @@ Workshop material: Using R/tidyverse to analyze & visualize processed genomics d
    - Saving your plots
    - Saving your data files
    - Summary of everything that you learnt in the workshop!
-
 
 ## Setup
 ### Before the Workshop Begins
