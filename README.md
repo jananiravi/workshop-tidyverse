@@ -1,8 +1,8 @@
 # Using `Tidyverse` for Genomics
-Workshop material: Using R/tidyverse to analyze & visualize processed genomics data!
 
 ## Overview
-
+This repo contains the workshop material for using R/tidyverse to analyze & visualize processed genomics data! <br>
+[Rmd]() | [PDF]() | [HTML]() | [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
    - Loading packages
@@ -30,6 +30,8 @@ Workshop material: Using R/tidyverse to analyze & visualize processed genomics d
 
 ## Learning Objectives
 By the end of this workshop, you will be able to load your genomic dataset, perform basic data tidying & wrangling, data visualization, and save/export your results using `tidyverse`! Hopefully, you will also have a newfound appreciation for reproducible research and R!
+
+<img src="/tidyverse-overview.png" alt="" width="50%" height="50%">
 
 ## Setup
 ### Before the Workshop Begins
