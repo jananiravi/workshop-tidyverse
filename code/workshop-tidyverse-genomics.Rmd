@@ -1,0 +1,791 @@
+---
+title: "Introduction to Tidyverse for Genomics"
+description: |
+ RMarkdown file to accompany the Tidyverse for Genomics workshop
+author:
+  - name: Janani Ravi
+    url: https://jananiravi.github.io
+    affiliation: PDI, MSU | R-Ladies East Lansing
+    affiliation_url: https://rladies-eastlansing.github.io
+  - name: Arjun Krishnan
+    url: https://arjun-krishnan.net
+    affiliation: CMSE & BMB, MSU
+    affiliation_url: https://cmse.msu.edu/
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    toc: yes
+  radix::radix_article:
+    toc: TRUE
+    toc_depth: 3
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+  html_notebook:
+    theme: spacelab
+    toc: yes
+editor_options:
+  chunk_output_type: console
+always_allow_html: true
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = TRUE,
+  message = TRUE,
+  # comment = "##",
+  R.options = list(width = 60)
+)
+```
+
+### About me
+I am a computational biologist working in the department of Pathobiology & Diagnostic Investigation (CVM). In our group, we develop computational approaches to understand infectious disease biology. Check out my [webpage](https://jananiravi.github.io) for more info. You can reach me [here](https://jananiravi.github.io/#contact).
+
+I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io) group on campus. We conduct R-related workshops & meetups regularly! So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
+
+# Part 1: Getting Started w/ `readr`
+You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
+Other related workshops & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
+
+## Installation and set-up
+### Install RStudio
+*Running RStudio locally?*
+[**Download RStudio**](http://rstudio.com/download)
+
+*Want to try the latest 'Preview' version of RStudio?*
+[**RStudio Preview version**]((https://www.rstudio.com/products/rstudio/download/preview/))
+
+*Trouble with local installation?* Login & start using [**RStudio Cloud**](https://rstudio.cloud) right away!
+
+*New to RStudio IDE?*
+Use Help [Page #1](https://www.rstudio.com/products/rstudio/#Desktop) &
+[Page #2](https://www.rstudio.com/products/rstudio/features/)
+
+
+### Install R
+*... if you haven't already!*
+The RStudio startup message should specify your current local version of R.
+For _e.g.,_ `R v3.5.2`
+
+- [Download R](https://cran.mtu.edu/)
+- [*Update to the latest version of R?*](https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol)
+- [A Windows-specific solution to updating R](https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/)
+
+### Install packages
+- **Install**: once
+- **Load**: each time
+
+```{r installation, eval=F, echo=T}
+install.packages("tidyverse")   # for data wrangling
+install.packages("here")        # to set paths relative to your current project.
+# install.packages("gapminder") # sample dataset
+```
+Explore the [RLEL workshops](https://github.com/rladies-eastlansing/meetup-presentations) for more examples and sample codes for Tidy Data and DataViz [_e.g.,_ >> `presentations/20181105-workshop-tidydata` uses the `gapminder` & `USArrests` datasets].
+
+
+**Trouble installing tidyverse?**
+
+- Check your R/RStudio versions
+- For the time-being install the individual packages using `install.packages("PACKAGENAME")`
+- Check out the whole `tidyverse` suite of packages [here](https://www.tidyverse.org/packages/)
+
+```{r tidyverse, eval=FALSE,echo=TRUE}
+# If tidyverse installation fails, install individual constituent packages this way...
+install.packages("readr")    # Importing data files
+install.packages("tidyr")    # Tidy Data
+install.packages("dplyr")    # Data manipulation
+install.packages("ggplot2")  # Data Visualization (w/ Grammar of Graphics)
+install.packages("readxl")   # Importing excel files
+```
+
+### Loading packages
+```{r loading, eval=T, echo=TRUE}
+library(tidyverse)
+# OR load the individual packages, if you have trouble installing/loading `tidyverse`
+# library(readr)
+# library(readxl)
+# library(tidyr)
+# library(dplyr)
+# library(ggplot2)
+library(here) # https://github.com/jennybc/here_here
+# library(gapminder) # useful dataset for data wrangling, visualization
+```
+
+## Some useful cheatsheets
+[Cheatsheets \@RStudio](https://www.rstudio.com/resources/cheatsheets/) | [Our cheatsheets repo](https://github.com/jananiravi/cheatsheets)
+
+More resources towards the [end of the document](#refs).
+
+## Data import
+
+- `read_csv`, `write_csv`
+- `read_tsv`, `write_tsv`
+- `read_delim`, `write_delim`
+- `here::here`
+
+```{r data-import, eval=T, echo=TRUE}
+here::here() # where you opened your RStudio session/Project
+
+# Downloading sample genomics dataset from NCBI's FTP site
+url <- "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE69nnn/GSE69360/suppl/GSE69360_RNAseq.counts.txt.gz"
+gse69360 <- read_tsv(url) # to read tab-delimitted files
+?read_tsv # to check defaults
+```
+
+```{r data-import2, eval=F, echo=T}
+# Comma-separated values, as exported from excel/spreadsheets
+read_csv(file="path/to/my_data.csv", col_names=T)
+# Other atypical delimitters
+read_delim(file="path/to/my_data.txt", col_names=T, delim="//")
+
+# Other useful packages
+# readxl by Jenny Bryan
+read_excel(path="path/to/excel.xls",
+           sheet=1,
+           range="A1:D50",
+           col_names=T)
+
+## Tip: Always open .Rproj and use relative paths with here()
+## Example with here()
+read_tsv(file=here("data/GSE69360_RNAseq.counts.txt"), col_names=T)
+```
+
+
+## Knowing your data
+*Dataset details*:
+
+- AA: Agilent Adult; AF: Agilent Fetus
+- BA: BioChain Adult; BF: BioChain Fetus
+- OA: OriGene Adult
+- Tissues: Colon, Heart, Kidney, Liver, Lung, Stomach
+
+```{r data-structure, echo=TRUE, eval=F}
+str(gse69360)              # Structure of the dataframe
+gse69360                   # Data is in a cleaend up 'tibble' format by default
+head(gse69360)             # Shows the top few observations (rows) of your data frame
+glimpse(gse69360)          # Info-dense summary of the data
+View(head(gse69360, 100))  # View data in a visual GUI-based spreadsheet-like format
+
+colnames(gse69360)         # Column names
+nrow(gse69360)             # No. of rows
+ncol(gse69360)             # No. of columns
+
+gse69360[1:5,7:10]         # Subsetting a dataframe
+
+## saving the data file
+write_tsv(gse69360[1:100,7:12], "gse_subset.txt")
+```
+
+```{r kable, layout="l-body-outset"}
+library(knitr)
+kable(head(gse69360))
+```
+
+```{r paged_table, layout="l-body-outset"}
+library(rmarkdown)
+paged_table(gse69360)
+```
+
+***
+# Part 2: Reshaping data w/ `tidyr`
+```{r tidyr, echo=TRUE, eval=FALSE}
+gather()   # Gather COLUMNS -> ROWS
+spread()   # Spread ROWS -> COLUMNS
+separate() # Separate 1 COLUMN -> many COLUMNS
+unite()    # Unite several COLUMNS -> 1 COLUMN
+```
+
+## Gather, Spread
+- `gather`: *Gather columns into key-value pairs. Wide -> Long*
+- `spread`: *Spread a key-value pair across multiple columns: Long -> Wide*
+
+```{r gather-spread, echo=T, eval=T}
+# Gather all columns except 'Geneid'
+gse69360 %>%
+  select(Geneid, matches("[AF]_")) %>%
+  gather(-Geneid, key="Sample", value="Counts") # wide -> long format
+
+# Gather, then Spread --> Back to original data
+gse69360 %>%
+  select(Geneid, matches("[AF]_")) %>%
+  gather(-Geneid, key="Sample", value="Counts") %>%
+  spread(key = "Sample", value = "Counts")     # spread to turn back to the original data!
+```
+
+
+## Unite, Separate
+- `unite`: *Unite multiple columns into one*
+- `separate`: *Separate one column into multiple columns*
+
+```{r separate-unite, echo=T, eval=T}
+gse69360 %>%
+  select(Geneid, matches("[AF]_")) %>%               # selecting only Counts columns
+  gather(-Geneid, key="Sample", value="Counts") %>%  # wide -> long tidying up
+  separate(Sample, into=c("Source_Stage", "Tissue"), sep="_") # separate logically
+
+gse69360 %>%
+  select(Geneid, matches("[AF]_")) %>%
+  gather(-Geneid, key="Sample", value="Counts") %>%
+  separate(Sample, into=c("Source_Stage", "Tissue"), sep="_") %>%
+  separate(Source_Stage, into=c("Source", "Stage"), sep=1) # separate by char position
+
+gse69360 %>%
+  select(Geneid, matches("[AF]_")) %>%
+  gather(-Geneid, key="Sample", value="Counts") %>%
+  separate(Sample, into=c("Source_Stage", "Tissue"), sep="_") %>%
+  separate(Source_Stage, into=c("Source", "Stage"), sep=1) %>%
+  unite(Stage_Tissue, Stage, Tissue) # combining a different set of columns
+```
+
+***
+# Part 3: Data wranging with `dplyr`
+```{r dplyr, echo=TRUE, eval=FALSE}
+filter()    # PICK observations by their values | ROWS
+select()    # PICK variables by their names | COLUMNS
+mutate()    # CREATE new variables w/ functions of existing variables | COLUMNS
+transmute() # COMPUTE 1 or more COLUMNS but drop original columns
+arrange()   # REORDER the ROWS
+summarize() # COLLAPSE many values to a single SUMMARY
+group_by()  # GROUP data into rows with the same value of variable (COLUMN)
+```
+
+## Filter
+- `filter`: *Return rows with matching conditions*
+
+```{r filter, echo=TRUE, eval=TRUE}
+head(gse69360) # Snapshot of the dataframe
+
+# Now, filter by condition
+filter(gse69360, Length<=50)
+
+# Can be rewritten using "Piping" %>%
+gse69360 %>%   # Pipe ('then') operator to serially connect operations
+  filter(Length <= 50)
+
+# Filtering using regex/substring match
+gse69360 %>%
+  filter(grepl("chrY", Chr))
+
+# Two filters at a time
+gse69360 %>%
+  filter(Length <= 50 & grepl("chrY", Chr))
+
+```
+
+## Select
+- `select`: *Select/rename variables/columns by name*
+
+```{r select, echo=T, eval=T}
+# Selecting columns that match a pattern
+gse69360 %>%
+  select(Geneid, matches(".F_"))
+
+# Excluding specific columns
+gse69360 %>%
+  select(-Chr, -Start, -End, -Strand, -Length)
+
+# Excluding columns matching a pattern
+gse69360 %>%
+  select(-matches("[AF]_"))
+
+# Select then Filter
+gse69360 %>%
+  select(Geneid, Chr, Length, matches("[AF]_")) %>%
+  filter(grepl("chrY", Chr) | Length <= 100)
+```
+
+
+## Mutate
+- `mutate`: *Adds new variables; keeps existing variables*
+- `transmute`: *Adds new variables; drops existing variables*
+
+```{r mutate, echo=T, eval=T}
+# Excluding columns matching a condition
+gse69360 %>%
+  select(-matches("[AF]_")) %>%
+  head(., 10) %>% View()
+
+# Storing gene location information in a seprate data frame
+gene_loc <- gse69360 %>%                                            # saving output to a variable
+  select(-matches("[AF]_")) %>%                                     # select columns
+  mutate(Geneid = gsub("\\.[0-9]*$", "", Geneid)) %>%               # remove isoform no.
+  mutate(Chr = gsub(";.*$", "", gse69360$Chr)) %>%                  # keep the first element for Chr
+  mutate(Start = as.numeric(gsub(";.*$", "", gse69360$Start))) %>%  # "" for Start
+  mutate(End = as.numeric(gsub(";.*$", "", gse69360$End))) %>%      # "" for End
+  mutate(Strand = gsub(";.*$", "", gse69360$Strand))                # "" for Strand
+
+# Check to see if you have what you expected!
+gene_loc
+View(head(gene_loc, 10))
+
+# Creating new variables
+gene_loc %>%
+  mutate(kbStart = Start/1000,     # creates new variables/columns
+         kbEnd = End/1000,
+         kbLength = Length/1000)
+
+# Creating new variables & dropping old ones
+gene_loc %>%
+  transmute(kbStart = Start/1000,  # drops original columns
+            kbEnd = End/1000,
+            kbLength = Length/1000)
+
+```
+
+## Distinct & Arrange
+- `distinct`: *Pick unique entries*
+- `arrange`: *Arrange rows by variables*
+
+```{r arrange, echo=TRUE, eval=TRUE}
+# Pick only the unique entries in a column
+gene_loc %>%
+  distinct(Chr)
+
+gene_loc %>%
+  distinct(Strand)
+
+# Pick unique combinations
+gene_loc %>%
+  distinct(Chr, Strand)
+
+# Then sort aka arrange your data
+gene_loc %>%
+  arrange(desc(Chr))    # sort in descending order
+
+gene_loc %>%
+  arrange(Chr, Length)  # sort by Chr, then Length
+# arrange(Chr, -Length) # to reverse sort by 'numeric' Length
+```
+
+
+## Group_by & Summarize
+- `summarize`: *Reduces multiple values down to a single value*
+- `group_by`: *Combine entries by one or more variables*
+
+```{r summarize, eval=TRUE, echo=TRUE}
+# Combine by a variable, then calculate summary statistics for each group
+gene_loc %>%
+  group_by(Chr) %>%                         # combine rows by Chr
+  summarize(numGenes = n(),                 # then summarise, number of genes/Chr
+            startoffirstGene = min(Start))  # min to get the first Start location
+
+# Example to show you can use all math/stat functions to summarize data groups
+gene_loc %>%
+  arrange(Length) %>%
+  group_by(Chr, Strand) %>%
+  summarize(numGenes = n(),
+            smallestGene = first(Geneid),
+            minLength = min(Length),
+            firstqLength = quantile(Length, 0.25),
+            medianLength = median(Length),
+            iqrLength = IQR(Length),
+            thirdqLength = quantile(Length, 0.75),
+            maxLength = max(Length),
+            longestGene = last(Geneid))
+
+# Renaming chromsosomes & declaring them as factors w/ an intrinsic order
+# gene_loc$Chr <- factor(gene_loc$Chr,
+#                        levels = paste("chr",
+#                                       c((1:22), "X", "Y", "M"),
+#                                       sep=""))
+
+# Saving your data locally
+gene_loc %>%
+  write_tsv(here("data/GSE69360.gene-locations.txt"))
+
+```
+
+### More data wrangling
+Let's combine everything from above to tidy the full GSE69360 dataset.
+
+Dataset details:
+
+- AA: Agilent Adult; AF: Agilent Fetus
+- BA: BioChain Adult; BF: BioChain Fetus
+- OA: OriGene Adult
+- Tissues: Colon, Heart, Kidney, Liver, Lung, Stomach
+
+```{r more-wrangling, echo=TRUE, eval=TRUE}
+# Extracting just the expression values & cleaning it up
+View(head(gse69360, 50))
+
+gene_counts <- gse69360 %>%
+  select(-Chr, -Start, -End, -Strand, -Length) %>%          # another way to select just the expression data
+  rename(OA_Stomach = OA_Stomach1) %>%                      # rename couple of columns
+  mutate(OA_Stomach2 = NULL, OA_Stomach3 = NULL) %>%        # remove a couple of columns
+  mutate(Geneid = gsub("\\.[0-9]*$", "", Geneid))           # cleanup data a specific column
+
+logcpm <- gene_counts %>%
+  select(-Geneid) %>%
+  mutate_all(function(x) { log2((x*(1e+6)/sum(x)) + 1) } )  # convert counts in each sample to counts-per-million
+
+summary(logcpm)
+
+gene_logcpm <- gene_counts %>%                              # a new dataframe with logcpm values
+  select(Geneid) %>%
+  bind_cols(logcpm) %>%                                     # bind the logcpm matrix to the geneids
+  gather(-Geneid, key = "Sample", value = "Logcpm") %>%     # convert to tidy data
+  separate(Sample,                                          # cleanup complex variables
+           into = c("Source", "Stage", "Tissue"),
+           sep = c(1,2),
+           remove = F) %>%                                  # keep original variable
+  mutate(Tissue = gsub("^_", "", Tissue),
+         Stage = ifelse(Stage == "A", "Adult", "Fetus"))
+
+View(head(gene_logcpm, 50))
+
+# Plotting the distribution of gene-expression in each sample
+gene_logcpm %>%
+  ggplot(aes(x = Sample, y = Logcpm, color = Tissue, linetype = Stage)) +
+  geom_boxplot(outlier.size = 0.2, outlier.shape = 0.2) +
+  scale_y_continuous(limits = c(0, 1)) +
+  coord_flip() +
+  theme_minimal()
+```
+
+***
+# Part 4: Visualizing tidy data w/ `ggplot`
+## Basics of ggplot2
+**Creating a plot w/ Grammar of Graphics**
+
+> 1. Recap and continuation of **dplyr**
+> 2. Basics of plotting data with **ggplot2**: `data`, `aes`, `geom`
+> 3. Customization: Colors, labels, and legends
+
+
+### Barplots & Histograms
+- `ggplot`, `factor`, `aes`
+- `geom_bar`, `geom_histogram`
+- `facet_wrap`
+- `scale_x_log10`, `labs`, `coord_flip`, `theme`, `theme_minimal`
+
+```{r ggplot-bars-hist, echo=T, eval=T}
+gene_loc %>%                                                      # data
+  ggplot(aes(x = Chr)) +                                          # aesthetics: what to plot?
+  geom_bar()                                                      # geometry: how to plot?
+
+gene_loc$Chr <- factor(gene_loc$Chr,
+                       levels = paste("chr",
+                                      c((1:22), "X", "Y", "M"),
+                                      sep=""))
+
+plot_chr_numgenes <- gene_loc %>%
+  ggplot(aes(x = Chr)) +
+  geom_bar()
+plot_chr_numgenes
+
+plot_chr_numgenes +
+  coord_flip() +
+  theme_minimal()
+
+plot_chr_numgenes +
+  labs(title = "No. genes per chromosome",
+       x = "Chromosome",
+       y = "No. of genes") +
+  theme_minimal() +
+  coord_flip()
+
+gene_loc %>%
+  ggplot(aes(x = Length)) +
+  geom_histogram(color = "white") +
+  scale_x_log10() +
+  theme_minimal()
+
+plot_chr_genelength <- gene_loc %>%
+  ggplot(aes(x = Length, fill = Chr)) +
+  geom_histogram(color = "white") +
+  scale_x_log10() +
+  theme_minimal() +
+  facet_wrap(~Chr, scales = "free_y")
+plot_chr_genelength
+
+plot_chr_genelength +
+  theme(legend.position = "none") +
+  labs(x = "Gene length (log-scale)",
+       y = "No. of genes")
+
+```
+
+
+### Scatter plots
+- `geom_point`
+- `geom_abline`, `geom_vline`, `geom_hline`
+- `geom_smooth`, `geom_text_repel`
+
+```{r ggplot-scatter, echo=TRUE, eval=TRUE}
+
+gene_loc %>%
+  ggplot(aes(x = End-Start, y = Length)) +
+  geom_point()
+
+plot_strend_length <- gene_loc %>%
+  ggplot(aes(x = End-Start, y = Length)) +
+  geom_point(alpha = 0.1, size = 0.5, color = "grey", fill = "grey")
+plot_strend_length
+
+plot_strend_length <- plot_strend_length +
+  scale_x_log10("End-Start") +
+  scale_y_log10("Gene length") +
+  theme_minimal()
+plot_strend_length
+
+plot_strend_length +
+  geom_abline(intercept = 0, slope = 1, col = "red") +
+  geom_hline(yintercept = 500, color = "blue") +
+  geom_vline(xintercept = 1000, color = "orange")
+
+gene_loc %>%
+  group_by(Chr) %>%
+  summarize(meanLength = mean(Length), numGenes = n())
+
+gene_loc %>%
+  group_by(Chr) %>%
+  summarize(meanLength = mean(Length), numGenes = n()) %>%
+  ggplot(aes(x = numGenes, y = meanLength)) +
+  geom_point()
+
+library(ggrepel)
+gene_loc %>%
+  group_by(Chr) %>%
+  summarize(meanLength = mean(Length), numGenes = n()) %>%
+  ggplot(aes(x = numGenes, y = meanLength)) +
+  geom_point() +
+  geom_smooth(color = "lightblue", alpha = 0.1) +
+  labs(x = "No. of genes", y = "Mean gene length") +
+  geom_text_repel(aes(label = Chr), color="red", segment.color="grey80") +
+  theme_minimal()
+```
+
+### Boxplots & Violin plots
+- `geom_boxplot`, `geom_violin`
+- `scale_y_continuous`
+
+```{r echo=TRUE, eval=TRUE}
+gene_logcpm %>%
+  ggplot(aes(x = Sample, y = Logcpm, color = Tissue, linetype = Stage)) +
+  geom_boxplot() +
+  coord_flip() +
+  theme_minimal()
+
+gene_logcpm %>%
+  ggplot(aes(x = Sample, y = Logcpm, color = Tissue, linetype = Stage)) +
+  geom_violin() +
+  scale_y_continuous(limits = c(0, 0.5)) +
+  coord_flip() +
+  theme_minimal()
+
+# Plotting the distribution of gene-expression in each sample
+plot_sample_bxp <- gene_logcpm %>%
+  ggplot(aes(x = Sample, y = Logcpm, color = Tissue, linetype = Stage)) +
+  geom_boxplot(outlier.size = 0.2, outlier.alpha = 0.2) +
+  scale_y_continuous(limits = c(0, 1)) +
+  coord_flip() +
+  theme_minimal()
+plot_sample_bxp
+
+# Plotting scatterplot of 2 sets of samples
+plot_ffcolon_scatter <- gene_logcpm %>%
+  filter(Sample == "AF_Colon" | Sample == "BF_Colon") %>%
+  select(Geneid, Sample, Logcpm) %>%
+  spread(key = Sample, value = Logcpm) %>%
+  ggplot(aes(x = AF_Colon, y = BF_Colon)) +
+  geom_point(alpha = 0.1, size = 0.5) +
+  geom_smooth(method=lm) +
+  theme_minimal()
+plot_ffcolon_scatter
+```
+
+
+### Some data sleuthing
+```{r echo=TRUE, eval=TRUE}
+# Finding genes with high variance across samples
+num_totgenes <- gene_logcpm %>%
+  distinct(Geneid) %>%
+  nrow()
+
+highvar_genes <- gene_logcpm %>%
+  group_by(Geneid) %>%
+  summarize(iqr = IQR(Logcpm)) %>%
+  top_n((ceiling(num_totgenes*0.05)), iqr) %>%
+  pull(Geneid)
+
+length(highvar_genes)
+
+# Plotting expression of high-var Y chr genes across samples
+chry_highvar_genes <- gene_loc %>%
+  filter(Chr == "chrY" & Geneid %in% highvar_genes) %>%
+  pull(Geneid)
+
+gene_logcpm %>%
+  filter(Geneid %in% chry_highvar_genes)
+
+plot_chry_highvar_boxplot <- gene_logcpm %>%
+  filter(Geneid %in% chry_highvar_genes) %>%
+  ggplot(aes(x = reorder(Sample, Logcpm, FUN = median),
+             y = Logcpm,
+             color = Sample)) +
+  geom_boxplot() +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "none")
+plot_chry_highvar_boxplot
+```
+
+***
+# Part 5: Export & Wrap-up w/ `RMarkdown`
+## Saving your plots
+### ggsave
+**Save a ggplot (or other grid object) with sensible defaults**
+
+```{r ggsave, eval=F, echo=TRUE}
+library(tidyverse)
+# Save your file name
+plot1 <- "my_plot1.tiff"
+
+# Save your absolute/relative path
+my_full_path <- here("data")
+
+# To save as a tab-delimited text file ...
+ggsave(filename=plot1,
+       plot=static_plot,
+       device="tiff",
+       path=my_full_path,
+       dpi=600)
+
+```
+
+## Saving your data files
+### write_delim
+**Write a data frame to a delimited file**
+
+```{r write_delim, eval=F, echo=TRUE}
+library(tidyverse)
+# Save your file name
+filename <- "my_new_data.txt"
+
+# Save your absolute/relative path
+my_full_path <- here("data")
+
+# To save as a tab-delimited text file ...
+write_tsv(x=my_newly_formatted_data, # your final reformatted dataset
+          path=paste(my_full_path, filename, "/"), # Absolute path recommended.
+          # However, you can directly use 'filename' here
+          # if you are saving the file in the same directory
+          # as your code.
+          col_names=T) # if you want the column names to be
+# saved in the first row, recommended
+
+# Alternatively, you could save it as a comma-separated text file
+write_csv(x=my_newly_formatted_data,
+          path=my_path,
+          col_names=T)
+# Or save it with any other delimiter
+# choose wisely, pick a delim that's not part of your dataframe
+write_delim(x=my_newly_formatted_data,
+            path=my_path,
+            col_names=T,
+            delim="---")
+```
+
+## *What you learnt today!*
+
+::: l-body-outset
+| Option      | Description                                        |
+|-------------|----------------------------------------------------|
+|**Part 1** | **Getting Started**                                      |
+| `install.packages`| Download and install packages from CRAN-like repositories or from local files |
+| `library`   | Library and require load and attach add-on packages|
+| `package::function`| To run a function w/o loading the package   |
+|*Import* | `tidyverse` > `readr` & `readxl`                                     |
+| `read_delim`| Read a delimited file (incl csv, tsv) into a tibble|
+| `read_csv, read_tsv`  | read_csv() and read_tsv() are special cases of the general read_delim()|
+| `read_excel`| Read xls and xlsx files                            |
+| `here`| Part of `here` package. To set paths relative to your current project directory  |
+|*Data snapshot*                                                |
+| `str`       | Compactly Display the Structure of an Arbitrary R Object|
+| `head`      | Return the First or Last Part of an Object         |
+| `glimpse`   | Get a glimpse of your data                         |
+| `View`      | Invoke a Data Viewer                               |
+| `kable`     | Create tables in LaTeX, HTML, Markdown and reStructuredText|
+| `paged_table`| Create a table in HTML with support for paging rows and columns|
+|**Part 2** | `tidyverse` > `tidyr`                                   |
+| `gather`    | Gather Columns Into Key-Value Pairs (COLS -> ROWS) |
+| `spread`    | Spread a key-value pair across multiple columns    |
+| `separate`  | Separate one column into multiple column           |
+| `unite`     | Unite multiple columns into one                    |
+|**Part 3** | `tidyverse` > `dplyr`                                       |
+| `filter`    | Return rows with matching conditions               |
+| `select`    | Select/rename variables by name                    |
+| `mutate`    | Add new variables                                  |
+| `transmute` | Add new variables & drops existing variables       |
+| `distinct`  | Get unique entries                                 |
+| `arrange`   | Arrange rows by variables                          |
+| `summarise` | Reduces multiple values down to a single value     |
+| `group_by`  | Group by one or more variables                     |
+| `join`      | Join two tbls together: `left_join`, `right_join`, `inner_join`|
+| `bind`      | Efficiently bind multiple data frames by row and column: `bind_rows`, `bind_cols`|
+| `setops`    | Set operations: `intersect`, `union`, `setdiff`, `setequal`|
+|**Part 4** | `tidyverse` > `ggplot`                                   |
+| `ggplot`    | Create a new ggplot                                |
+|*Aesthetics*|
+| `aes`| Specify details on what to plot                            |
+| `factor`| Specify a variable to be ordered & categorical          |
+| `facet_wrap`| Split into multiple sub-plots based on a categorical variable |
+|*Geometries*|
+| `geom_bar`| Create a barplot                                |
+| `geom_histogram`| Create a histogram                                |
+| `geom_point`| Create a scatter plot                                |
+| `geom_boxplot`| Create a boxplot                                |
+| `geom_violin`| Create a violin plot                                |
+| `geom_abline, geom_hline, geom_vline`| Add slanted, horizontal, or vertical lines |
+| `geom_smooth`| Add a smooth curve that fits the data points                       |
+|*Plot customization*|
+| `theme, theme_minimal, theme_bw`| Adjust themes to minimal, black/white, etc |
+| `scale_x_log10`| Change x/y axes to log scale                    |
+| `scale_y_continuous`| Change x/y axes to continuous & set limits |
+| `coord_flip`| Flip x & y coordinates                                |
+| `labs`| Specify axes labels and plot titles                          |
+|**Part 5** | **Export & Wrap-up**                                     |
+|*Export* | `tidyverse` > `readr`                                            |
+| `ggsave`    | Save a ggplot (or other grid object) with sensible defaults|
+| `write_delim`| Write a data frame to a delimited file            |
+| `write_tsv` | write_delim customized for tab-separated values    |
+| `write_csv` | write_delim customized for comma-separated values  |
+:::
+
+***
+
+## Credits
+[Arjun Krishnan](https://github.com/arjunkrish) and I co-developed the content for this workshop.
+
+### Acknowledgements
+- [Krishnan Lab](https://thekrishnanlab.org)
+- [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
+- [R-Ladies Chennai](https://meetup.com/rladies-chennai)
+
+### Contact
+- Webpage: <https://jananiravi.github.io> | <https://arjun-krishnan.net>
+- Email: <janani@msu.edu> | <arjun@msu.edu>
+- Twitter: [\@janani137](https://twitter.com/janani137) | [\@compbiologist](https://twitter.com/compbiologist)
+- GitHub: [\@jananiravi](https://github.com/jananiravi) | [\@arjunkrish](https://github.com/arjunkrish)
+
+## Additional resources {#refs}
+- You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
+- Other related [RLEL workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
+
+### Some awesome open-source books
+- Hands-On Programming with R: Grolemund #HOPR https://rstudio-education.github.io/hopr/
+- R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
+- R Programming for Data Science: Peng https://leanpub.com/rprogramming
+- Learning Statistics with R: Navarro https://learningstatisticswithr.com/book
+
+### Other helpful links
+- #TidyTuesday challenges | On [GitHub](https://github.com/rfordatascience/tidytuesday), [Twitter](https://twitter.com/search?q=%23TidyTuesday&src=typeahead_click).
+- gganimate: [thomasp85/gganimate](https://github.com/thomasp85/gganimate)
+- tidyexplain: [gadenbuie/tidyexplain](https://github.com/gadenbuie/tidyexplain)
+- Pipes (%>%): <datacamp.com/community/tutorials/pipe-r-tutorial>
+- Radix (theme for RMarkdown): https://rstudio.github.io/radix/
+- Google & [StackOverflow](https://stackoverflow.com/) are your best friends!
