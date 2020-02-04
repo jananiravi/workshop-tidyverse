@@ -1,12 +1,16 @@
 ---
 title: "Introduction to Tidyverse for Genomics"
 description: |
- RMarkdown file to accompany the Tidyverse4Genomics workshop
+ RMarkdown file to accompany the Tidyverse for Genomics workshop
 author:
   - name: Janani Ravi
     url: https://jananiravi.github.io
     affiliation: Pathobiology & Diagnostic Investigation, MSU | R-Ladies East Lansing
     affiliation_url: https://rladies-eastlansing.github.io
+  - name: Arjun Krishnan
+    url: https://arjun-krishnan.net
+    affiliation: CMSE & BMB, MSU
+    affiliation_url: https://cmse.msu.edu/
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -37,12 +41,12 @@ knitr::opts_chunk$set(
 ```
 
 ### About me
-I am a computational biologist working in the department of Pathobiology & Diagnostic Investigation (CVM). Check out my [webpage](https://jananiravi.github.io) for more info. You can reach me [here](https://jananiravi.github.io/#contact).
+I am a computational biologist working in the department of Pathobiology & Diagnostic Investigation (CVM). In our group, we develop computational approaches that leverage large-scale genomic data to gain actionable insights into infectious disease biology. Check out my [webpage](https://jananiravi.github.io) for more info. You can reach me [here](https://jananiravi.github.io/#contact).
 
 I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io) group on campus. We conduct R-related workshops & meetups regularly! So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
 
 # Part 1: Getting Started
-You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/talk).
+You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
 Other related workshops & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
 
 ## Installation and set-up
