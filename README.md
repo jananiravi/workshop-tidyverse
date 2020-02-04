@@ -2,7 +2,7 @@
 
 ## Overview
 This repo contains the workshop material for using R/tidyverse to analyze & visualize processed genomics data! <br>
-[Code](https://github.com/jananiravi/tidyverse-genomics/blob/master/workshop-tidyverse-genomics.Rmd) | [Presentation](https://github.com/jananiravi/tidyverse-genomics/blob/master/workshop-tidyverse.pdf) | [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
+[Code](https://github.com/jananiravi/tidyverse-genomics/tree/master/code) | [Presentation](https://github.com/jananiravi/tidyverse-genomics/tree/master/presentation) | [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
    - Loading packages
@@ -31,7 +31,7 @@ This repo contains the workshop material for using R/tidyverse to analyze & visu
 ## Learning Objectives
 By the end of this workshop, you will be able to load your genomic dataset, perform basic data tidying & wrangling, data visualization, and save/export your results using `tidyverse`! Hopefully, you will also have a newfound appreciation for reproducible research and R!
 
-<img src="/tidyverse-overview.png" alt="" width="50%" height="50%">
+<img src="https://github.com/jananiravi/tidyverse-genomics/blob/master/tidyverse-overview.png" alt="" width="50%" height="50%">
 
 ## Setup
 ### Before the Workshop Begins
@@ -80,7 +80,7 @@ Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/
 
 ## Additional resources
 - You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/tidyverse-genomics).
-- Other related workshops & useful cheatsheets: On [GitHub](http://github.com/rladies-eastlansing) & [Google Drive](http://bit.ly/rlel-meetup-presentations-gd).
+- Other related [RLEL workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
 
 ### Some awesome open-source books
 - R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
