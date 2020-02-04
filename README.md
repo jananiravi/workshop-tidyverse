@@ -80,7 +80,7 @@ Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/
 
 ## Additional resources
 - You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/tidyverse-genomics).
-- Other related workshops & useful cheatsheets: On [GitHub](http://github.com/rladies-eastlansing) & [Google Drive](http://bit.ly/rlel-meetup-presentations-gd).
+- Other related [RLEL workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
 
 ### Some awesome open-source books
 - R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
