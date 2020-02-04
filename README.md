@@ -2,7 +2,7 @@
 
 ## Overview
 This repo contains the workshop material for using R/tidyverse to analyze & visualize processed genomics data! <br>
-[Code](https://github.com/jananiravi/tidyverse-genomics/blob/master/workshop-tidyverse-genomics.Rmd) | [Presentation](https://github.com/jananiravi/tidyverse-genomics/blob/master/workshop-tidyverse.pdf) | [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
+[Code](https://github.com/jananiravi/tidyverse-genomics/tree/master/code) | [Presentation](https://github.com/jananiravi/tidyverse-genomics/tree/master/presentation) | [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
    - Loading packages
