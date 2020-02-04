@@ -3,7 +3,6 @@ Workshop material: Using R/tidyverse to analyze & visualize processed genomics d
 
 ## Overview
 
-## Learning Objectives
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
    - Loading packages
@@ -28,6 +27,9 @@ Workshop material: Using R/tidyverse to analyze & visualize processed genomics d
    - Saving your plots
    - Saving your data files
    - Summary of everything that you learnt in the workshop!
+
+## Learning Objectives
+By the end of this workshop, you will be able to load your genomic dataset, perform basic data tidying & wrangling, data visualization, and save/export your results using `tidyverse`! Hopefully, you will also have a newfound appreciation for reproducible research and R!
 
 ## Setup
 ### Before the Workshop Begins
