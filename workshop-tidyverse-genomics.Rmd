@@ -41,7 +41,7 @@ knitr::opts_chunk$set(
 ```
 
 ### About me
-I am a computational biologist working in the department of Pathobiology & Diagnostic Investigation (CVM). In our group, we develop computational approaches that leverage large-scale genomic data to gain actionable insights into infectious disease biology. Check out my [webpage](https://jananiravi.github.io) for more info. You can reach me [here](https://jananiravi.github.io/#contact).
+I am a computational biologist working in the department of Pathobiology & Diagnostic Investigation (CVM). In our group, we develop computational approaches to understand infectious disease biology. Check out my [webpage](https://jananiravi.github.io) for more info. You can reach me [here](https://jananiravi.github.io/#contact).
 
 I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io) group on campus. We conduct R-related workshops & meetups regularly! So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
 
@@ -751,15 +751,19 @@ write_delim(x=my_newly_formatted_data,
 
 ***
 
-## Questions? Comments?
-- Webpage: <https://jananiravi.github.io>
-- Email: <janani@msu.edu>
-- Other ways to reach us: <https://jananiravi.github.io/#contact>
+## Credits
+[Arjun Krishnan](https://github.com/arjunkrish) and I co-developed the content for this workshop.
 
 ### Acknowledgements
 - [Krishnan Lab](https://thekrishnanlab.org)
 - [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
 - [R-Ladies Chennai](https://meetup.com/rladies-chennai)
+
+### Contact
+- Webpage: <https://jananiravi.github.io> | <https://arjun-krishnan.net>
+- Email: <janani@msu.edu> | <arjun@msu.edu>
+- Twitter: [@janani137](https://twitter.com/janani137) | [@compbiologist](https://twitter.com/compbiologist)
+- GitHub: [@jananiravi](https://github.com/jananiravi) | [@arjunkrish](https://github.com/arjunkrish)
 
 ## Additional resources {#refs}
 - You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/tidyverse-genomics).
