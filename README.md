@@ -65,15 +65,15 @@ Or you can use your package manager (e.g. for Debian/Ubuntu run `sudo apt-get in
 Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/download/#download).
 
 ## Credits
-[Arjun Krishnan](https://github.com/arjunkrish) and I co-developed the content for this workshop.
+[Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for this workshop.
 
 ### Acknowledgements
 - [Krishnan Lab](https://thekrishnanlab.org)
 - [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
-- [R-Ladies Chennai](https://meetup.com/rladies-chennai)
+- [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 
 ### Contact
-- Webpage: <https://jananiravi.github.io> | <https://arjun-krishnan.net>
+- Webpage: <https://jravilab.github.io> | <https://thekrishnanlab.org>
 - Email: <janani@msu.edu> | <arjun@msu.edu>
 - Twitter: [@janani137](https://twitter.com/janani137) | [@compbiologist](https://twitter.com/compbiologist)
 - GitHub: [@jananiravi](https://github.com/jananiravi) | [@arjunkrish](https://github.com/arjunkrish)
