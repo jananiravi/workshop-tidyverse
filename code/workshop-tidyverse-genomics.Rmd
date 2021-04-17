@@ -1,31 +1,33 @@
 ---
-title: "Introduction to Tidyverse for Genomics"
+title: "Introduction to Tidyverse (using Genomic data)"
 description: |
  RMarkdown file to accompany the Tidyverse for Genomics workshop
 author:
   - name: Janani Ravi
-    url: https://jananiravi.github.io
+    url: https://jravilab.github.io
     affiliation: PDI, MSU | R-Ladies East Lansing
     affiliation_url: https://rladies-eastlansing.github.io
+    orcid_id: 0000-0001-7443-925X
   - name: Arjun Krishnan
-    url: https://arjun-krishnan.net
+    url: https://thekrishnanlab.org
     affiliation: CMSE & BMB, MSU
     affiliation_url: https://cmse.msu.edu/
+    orcid_id: 0000-0002-7980-4110
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    toc: yes
-  radix::radix_article:
-    toc: TRUE
-    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     toc_float:
       collapsed: yes
       smooth_scroll: yes
+  pdf_document:
+    toc: yes
+  distill::distill_article:
+    toc: TRUE
+    toc_depth: 3
   html_notebook:
-    theme: spacelab
+    theme: flatly
     toc: yes
 editor_options:
   chunk_output_type: console
@@ -42,9 +44,14 @@ knitr::opts_chunk$set(
 ```
 
 ### About me
-I am a computational biologist working in the department of Pathobiology & Diagnostic Investigation (CVM). In our group, we develop computational approaches to understand infectious disease biology. Check out my [webpage](https://jananiravi.github.io) for more info. You can reach me [here](https://jananiravi.github.io/#contact).
+I am a computational biologist, an Asst. Professor in the department of Pathobiology & Diagnostic Investigation at Michigan State University.
+In our group, we develop computational approaches to understand infectious disease biology.
+Check out my [webpage](https://jravilab.github.io) for more info.
+You can reach me [here](https://jravilab.github.io/#contact).
 
-I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io) group on campus. We conduct R-related workshops & meetups regularly! So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
+I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io) group on campus.
+We conduct R-related workshops & meetups regularly!
+So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
 
 # Part 1: Getting Started w/ `readr`
 You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
@@ -68,9 +75,9 @@ Use Help [Page #1](https://www.rstudio.com/products/rstudio/#Desktop) &
 ### Install R
 *... if you haven't already!*
 The RStudio startup message should specify your current local version of R.
-For _e.g.,_ `R v3.5.2`
+For _e.g.,_ `R v4.0.5`
 
-- [Download R](https://cran.mtu.edu/)
+- [Download R](https://cran.r-project.org)
 - [*Update to the latest version of R?*](https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol)
 - [A Windows-specific solution to updating R](https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/)
 
@@ -192,10 +199,17 @@ paged_table(gse69360)
 ***
 # Part 2: Reshaping data w/ `tidyr`
 ```{r tidyr, echo=TRUE, eval=FALSE}
+## legacy tidyverse funcgions
 gather()   # Gather COLUMNS -> ROWS
 spread()   # Spread ROWS -> COLUMNS
+
+## newer tidyverse functions
+pivot_longer()  # Pivot data from wide to long
+pivot_wider()   # Pivot data from long to wide
+
 separate() # Separate 1 COLUMN -> many COLUMNS
 unite()    # Unite several COLUMNS -> 1 COLUMN
+
 ```
 
 ## Gather, Spread
@@ -206,35 +220,38 @@ unite()    # Unite several COLUMNS -> 1 COLUMN
 # Gather all columns except 'Geneid'
 gse69360 %>%
   select(Geneid, matches("[AF]_")) %>%
-  gather(-Geneid, key="Sample", value="Counts") # wide -> long format
+  # gather(-Geneid, key="Sample", value="Counts") # wide -> long format  ## legacy
+  pivot_longer(cols=matches("[AF]_"), names_to="Sample", values_to="Counts")
 
 # Gather, then Spread --> Back to original data
 gse69360 %>%
   select(Geneid, matches("[AF]_")) %>%
-  gather(-Geneid, key="Sample", value="Counts") %>%
-  spread(key = "Sample", value = "Counts")     # spread to turn back to the original data!
+  # gather(-Geneid, key="Sample", value="Counts") %>%
+  # spread(key = "Sample", value = "Counts")     # spread to turn back to the original data!
+  pivot_longer(cols=matches("[AF]_"), names_to="Sample", values_to="Counts") %>%
+  pivot_wider(names_from="Sample", values_from="Counts")
 ```
 
 
 ## Unite, Separate
-- `unite`: *Unite multiple columns into one*
+- `unite`:    *Unite multiple columns into one*
 - `separate`: *Separate one column into multiple columns*
 
 ```{r separate-unite, echo=T, eval=T}
 gse69360 %>%
   select(Geneid, matches("[AF]_")) %>%               # selecting only Counts columns
-  gather(-Geneid, key="Sample", value="Counts") %>%  # wide -> long tidying up
+  pivot_longer(cols=matches("[AF]_"), names_to="Sample", values_to="Counts") %>% # wide -> long
   separate(Sample, into=c("Source_Stage", "Tissue"), sep="_") # separate logically
 
 gse69360 %>%
   select(Geneid, matches("[AF]_")) %>%
-  gather(-Geneid, key="Sample", value="Counts") %>%
+  pivot_longer(cols=matches("[AF]_"), names_to="Sample", values_to="Counts") %>%
   separate(Sample, into=c("Source_Stage", "Tissue"), sep="_") %>%
   separate(Source_Stage, into=c("Source", "Stage"), sep=1) # separate by char position
 
 gse69360 %>%
   select(Geneid, matches("[AF]_")) %>%
-  gather(-Geneid, key="Sample", value="Counts") %>%
+  pivot_longer(cols=matches("[AF]_"), names_to="Sample", values_to="Counts") %>%
   separate(Sample, into=c("Source_Stage", "Tissue"), sep="_") %>%
   separate(Source_Stage, into=c("Source", "Stage"), sep=1) %>%
   unite(Stage_Tissue, Stage, Tissue) # combining a different set of columns
@@ -243,6 +260,7 @@ gse69360 %>%
 ***
 # Part 3: Data wranging with `dplyr`
 ```{r dplyr, echo=TRUE, eval=FALSE}
+conflicted::conflict_prefer(name="filter", winner="dplyr")
 filter()    # PICK observations by their values | ROWS
 select()    # PICK variables by their names | COLUMNS
 mutate()    # CREATE new variables w/ functions of existing variables | COLUMNS
@@ -547,6 +565,7 @@ gene_loc %>%
   ggplot(aes(x = numGenes, y = meanLength)) +
   geom_point()
 
+# install.packages("ggrepel", dependencies=T)
 library(ggrepel)
 gene_loc %>%
   group_by(Chr) %>%
@@ -759,15 +778,15 @@ write_delim(x=my_newly_formatted_data,
 ***
 
 ## Credits
-[Arjun Krishnan](https://github.com/arjunkrish) and I co-developed the content for this workshop.
+[Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for this workshop.
 
 ### Acknowledgements
 - [Krishnan Lab](https://thekrishnanlab.org)
 - [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
-- [R-Ladies Chennai](https://meetup.com/rladies-chennai)
+- [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 
 ### Contact
-- Webpage: <https://jananiravi.github.io> | <https://arjun-krishnan.net>
+- Webpage: <https://jravilab.github.io> | <https://thekrishnanlab.org>
 - Email: <janani@msu.edu> | <arjun@msu.edu>
 - Twitter: [\@janani137](https://twitter.com/janani137) | [\@compbiologist](https://twitter.com/compbiologist)
 - GitHub: [\@jananiravi](https://github.com/jananiravi) | [\@arjunkrish](https://github.com/arjunkrish)
@@ -787,5 +806,5 @@ write_delim(x=my_newly_formatted_data,
 - gganimate: [thomasp85/gganimate](https://github.com/thomasp85/gganimate)
 - tidyexplain: [gadenbuie/tidyexplain](https://github.com/gadenbuie/tidyexplain)
 - Pipes (%>%): <datacamp.com/community/tutorials/pipe-r-tutorial>
-- Radix (theme for RMarkdown): https://rstudio.github.io/radix/
+- Distill (theme for RMarkdown): https://rstudio.github.io/distill/
 - Google & [StackOverflow](https://stackoverflow.com/) are your best friends!
