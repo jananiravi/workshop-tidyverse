@@ -1,0 +1,603 @@
+---
+title: "Introduction to Tidyverse"
+description: |
+  RMarkdown file to accompany the tidyverse + gapminder workshop presentation
+author:
+  - name: Janani Ravi
+    url: https://jravilab.github.io
+    affiliation: R-Ladies East Lansing | PDI @MSU
+    affiliation_url: https://rladies-eastlansing.github.io
+    orcid_id: 0000-0001-7443-925X
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: TRUE
+    toc_depth: 3
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+editor_options:
+  chunk_output_type: console
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = TRUE,
+	message = TRUE,
+	# comment = "##",
+	R.options = list(width = 60)
+)
+```
+
+### About me
+I am a computational biologist, an Asst. Professor in the department of Pathobiology & Diagnostic Investigation at Michigan State University.
+In our group, we develop computational approaches to understand infectious disease biology.
+Check out my [webpage](https://jravilab.github.io) for more info.
+You can reach me [here](https://jravilab.github.io/#contact).
+
+I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io) group on campus.
+We conduct R-related workshops & meetups regularly!
+So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
+
+# Part 1: Getting Started w/ `readr`
+You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
+Other related workshops & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
+
+## Installation and set-up
+### Install RStudio
+*Running RStudio locally?*
+[**Download RStudio**](http://rstudio.com/download)
+
+*Want to try the latest 'Preview' version of RStudio?*
+[**RStudio Preview version**]((https://www.rstudio.com/products/rstudio/download/preview/))
+
+*Trouble with local installation?* Login & start using [**RStudio Cloud**](https://rstudio.cloud) right away!
+
+*New to RStudio IDE?*
+Use Help [Page #1](https://www.rstudio.com/products/rstudio/#Desktop) &
+[Page #2](https://www.rstudio.com/products/rstudio/features/)
+
+
+### Install R
+*... if you haven't already!*
+The RStudio startup message should specify your current local version of R.
+For _e.g.,_ `R v4.0.5`
+
+- [Download R](https://cran.r-project.org)
+- [*Update to the latest version of R?*](https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol)
+- [A Windows-specific solution to updating R](https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/)
+
+### Install tidyverse & other datasets
+```{r installation, eval=F, echo=T}
+install.packages("tidyverse") # for data wrangling
+install.packages("gapminder") # sample dataset
+```
+
+*Trouble with installing tidyverse?*
+
+- Check your R/RStudio versions
+- For the time-being install the individual packages using `install.packages("PACKAGENAME")`
+- Check out the whole `tidyverse` suite of packages [here](https://www.tidyverse.org/packages/)
+
+```{r tidyverse, eval=FALSE,echo=TRUE}
+install.packages("readr")	# Importing data files
+# install.packages("readxl") # Importing excel files
+install.packages("tidyr")	# Tidy Data
+install.packages("dplyr")	# Data manipulation
+install.packages("ggplot2")	# Data Visualization (w/ Grammar of Graphics)
+```
+
+### Loading packages
+```{r loading, eval=F, echo=TRUE}
+library(tidyverse)
+# OR load the individual packages:
+# library(readr)
+# library(readxl)
+# library(tidyr)
+# library(dplyr)
+# library(ggplot2)
+
+library(gapminder)
+```
+
+## Some useful cheatsheets
+[Cheatsheets \@RStudio](https://www.rstudio.com/resources/cheatsheets/)
+
+You can also access all relevant R/RStudio/Slack cheatsheets on our [GitHub repo](https://github.com/jananiravi/cheatsheets).
+
+
+## Data import
+```{r data-import, eval=FALSE, echo=TRUE}
+library(tidyverse)
+read_csv(file="my_data.csv",
+				 col_names=T)		# comma-separated values, as exported from excel/spreadsheets
+read_delim(file="my_data.txt", col_names=T,
+					 delim="//")	# any delimitter
+# Other useful packages
+# readxl by Jenny Bryan
+read_excel(path="path/to/excel.xls",
+					sheet=1,
+					range="A1:D50",
+					col_names=T)
+```
+
+## Loading existing datasets
+### Gapminder
+We will work with the [Gapminder dataset](https://www.gapminder.org/data/) by [Hans Rosling](https://www.ted.com/playlists/474/the_best_hans_rosling_talks_yo).
+
+*Unveiling the beauty of statistics for a fact based world view.*
+[Gapminder.org](https://www.gapminder.org/)
+
+[Tools to generate their trademark bubble charts](https://www.gapminder.org/tools/#$chart-type=bubbles)
+
+![Snapshot of their data](https://s3-eu-west-1.amazonaws.com/static.gapminder.org/GapminderMedia/wp-uploads/20161007154225/countries_health_wealth_2016_v71.png){width=50%}
+
+## Knowing your data
+
+```{r data-str, echo=TRUE, eval=F}
+# gapminder::gapminder
+str(gapminder)		# Structure of the dataframe
+gapminder 			# Data is in a cleaend up 'tibble' format by default
+head(gapminder)		# Shows the top few observations (rows) of your data frame
+glimpse(gapminder)	# Info-dense summary of the data
+View(gapminder)		# View data in a visual GUI-based spreadsheet-like format
+```
+### Running the code bit step-wise
+```{r data-str-run, echo=TRUE, eval=T}
+library(tidyverse)
+library(gapminder)
+str(gapminder)		# Structure of the dataframe
+gapminder 			# Data is in a cleaend up 'tibble' format by default
+head(gapminder)		# Shows the top few observations (rows) of your data frame
+glimpse(gapminder)	# Info-dense summary of the data
+View(gapminder)		# View data in a visual GUI-based spreadsheet-like format
+```
+
+```{r kable, layout="l-body-outset"}
+library(knitr)
+kable(head(gapminder))
+```
+
+```{r paged_table, layout="l-body-outset"}
+library(rmarkdown)
+paged_table(gapminder)
+```
+
+***
+# Part 2: Reshaping data with tidyr
+```{r tidyr, echo=TRUE, eval=FALSE}
+# gather()	# Gather COLUMNS -> ROWS
+# spread()	# Spread ROWS -> COLUMNS
+pivot_longer()  # wide -> long
+pivot_wider()   # long -> wide
+separate()	    # Separate 1 COLUMN -> many COLUMNS
+unite()		      # Unite several COLUMNS -> 1 COLUMN
+```
+
+## Data preparation
+
+```{r untidy-data, echo=T, eval=T}
+# We'll use the R built-in USArrests data set (datasets package). We start by subsetting a small dataset
+my_data <- USArrests[c(1, 10, 20, 30), ]
+my_data
+# Row names are states, so let's use the function bind_cols() to add a column named "state" in the data. This will make the data tidy and the analysis easier.
+my_data <- bind_cols(state = rownames(my_data),
+                     my_data)
+my_data
+```
+
+
+## Gather
+**Gather columns into key-value pairs. Wide -> Long**
+
+```{r gather, echo=T, eval=T}
+# Gather all columns except the column state
+my_data2 <- gather(my_data,
+                   key = "arrest_attribute",
+                   value = "arrest_estimate",
+                   -state)
+my_data2
+# Gather only Murder and Assault columns
+my_data2 <- gather(my_data,
+                   key = "arrest_attribute",
+                   value = "arrest_estimate",
+                   Murder, Assault)
+my_data2
+```
+
+## Spread
+**Spread a key-value pair across multiple columns: Long -> Wide**
+
+```{r spread, echo=T, eval=T}
+# Spread "my_data2" to turn back to the original data:
+my_data3 <- spread(my_data2, 
+                   key = "arrest_attribute",
+                   value = "arrest_estimate"
+)
+my_data3
+```
+
+## Unite
+**Unite multiple columns into one**
+
+```{r unite, echo=T, eval=T}
+# The R code below uses the data set "my_data" and unites the columns Murder and Assault
+my_data4 <- unite(my_data,
+                  col = "Murder_Assault",
+                  Murder, Assault,
+                  sep = "_")
+my_data4
+
+```
+
+## Separate
+**Separate one column into multiple columns**
+
+```{r separate, echo=T, eval=T}
+separate(my_data4,
+         col = "Murder_Assault",
+         into = c("Murder", "Assault"),
+         sep = "_")
+
+```
+
+***
+# Part 3: Data wranging with dplyr
+```{r dplyr, echo=TRUE, eval=FALSE}
+filter()	# PICK observations by their values | ROWS
+select()	# PICK variables by their names | COLUMNS
+mutate()	# CREATE new variables w/ functions of existing variables | COLUMNS
+transmute()	# COMPUTE 1 or more COLUMNS but drop original columns
+arrange()	# REORDER the ROWS
+summarize()	# COLLAPSE many values to a single SUMMARY
+group_by()	# GROUP data into rows with the same value of variable (COLUMN)
+```
+
+## Filter
+**Return rows with matching conditions**
+
+```{r filter, echo=TRUE, eval=TRUE}
+head(gapminder)	# Snapshot of the dataframe
+# Now, filter by year and look at only the data from the year 1962
+filter(gapminder, year==1962)
+
+# Can be rewritten using "Piping" %>%
+gapminder %>%	# Pipe ('then') operator to serially connect operations
+	filter(year==1962)
+# Filter for China in 2002
+gapminder %>%
+	filter(year==2002,
+				 country=="China")
+```
+
+## Select
+**Select/rename variables by name**
+
+```{r select, echo=T, eval=T}
+gapminder %>%
+	select(year, country, lifeExp)
+```
+
+## Arrange
+**Arrange rows by variables**
+
+```{r arrange, echo=TRUE, eval=TRUE}
+head(gapminder)	# Snapshot of the dataframe
+# Arrange/Sort by Life Expectancy
+arrange(gapminder, lifeExp)	# ascending order
+arrange(gapminder, -lifeExp)	# descending order
+
+# Want to rewrite using piping?
+gapminder %>%	# Pipe ('then') operator to serially connect operations
+	arrange(lifeExp)
+
+# Combining two verbs
+gapminder %>%
+	filter(year==2007) %>%
+	arrange(desc(gdpPercap))
+```
+
+## Mutate
+**Mutate: Adds new variables; keeps existing variables**
+**Transmute: Adds new variables; drops existing variables**
+
+```{r mutate, echo=T, eval=T}
+# library(tidyverse)
+# library(gapminder)
+# Changing existing variables
+gapminder %>%
+	mutate(pop=pop/1000000)
+
+# Use mutate to change lifeExp to be in months
+gapminder %>%
+	mutate(lifeExp = lifeExp * 12)
+
+# Adding new variables
+gapminder %>%
+	mutate(grossgdp = pop * gdpPercap)
+
+# Combing 3 verbs
+gapminder %>%
+	mutate(grossgdp = pop * gdpPercap) %>%
+	filter(year==2007) %>%
+	arrange(desc(grossgdp))
+```
+
+
+## Group_by & Summarize
+**Summarize: Reduces multiple values down to a single value**
+**Group by one or more variables**
+
+```{r summarize, eval=TRUE, echo=TRUE}
+# Finding mean life exp across all years all continents
+gapminder %>%
+	summarize(meanLifeExp = mean(lifeExp))
+
+# Summarize to find the median life expectancy
+gapminder %>%
+	summarize(medianLifeExp = median(lifeExp))
+
+# Avg life Exp and total pop in 2007
+gapminder %>%
+	filter(year==2007) %>%
+	summarize(meanLifeExp = mean(lifeExp),
+            totalPop = sum(as.numeric(pop)))
+
+# Filter for 1957 then summarize the median life expectancy
+gapminder %>%
+	filter(year==1957) %>%
+	summarize(medianLifeExp = median(lifeExp))
+
+# Avg life Exp and total pop in each year
+gapminder %>%
+	group_by(year) %>%
+	summarize(meanLifeExp = mean(lifeExp),
+            totalPop =  sum(as.numeric(pop)))
+
+# Avg life Exp and total pop in each year and contient
+gapminder %>%
+	group_by(year,continent) %>% 
+	summarize(meanLifeExp = mean(lifeExp),
+            totalPop = sum(as.numeric(pop)))
+
+```
+
+***
+# Part 4: Visualizing tidy data with ggplot
+## Recap of ggplot2
+**Creating a plot w/ Grammar of Graphics**
+
+```{r recap-ggplot, echo=T, eval=T}
+# Add the size aesthetic to represent a country's gdpPercap
+gapminder_1952 <- gapminder %>%
+	filter(year==1952)
+
+ggplot(gapminder_1952,
+       aes(x = pop, y = lifeExp,
+           color = continent, size = gdpPercap)) +
+	geom_point() +
+	scale_x_log10()
+
+# Instead of showing all categorical variables in one plot , we can have 5 different plots in one plot using faceting
+gapminder_2007 <- gapminder %>%
+	filter(year==2007)
+
+ggplot(data=gapminder_2007,
+       aes(x=gdpPercap,y=lifeExp)) +
+	geom_point() + 
+	scale_x_log10() + 
+	facet_wrap(~continent)
+
+# Scatter plot comparing gdpPercap and lifeExp, with color representing continent
+# and size representing population, faceted by year
+ggplot(data=gapminder,
+       aes(x=gdpPercap,y=lifeExp,
+           color=continent, size = pop)) +
+	geom_point() + 
+	scale_x_log10() + 
+	facet_wrap(~year)
+
+
+by_year <- gapminder %>%
+	group_by(year) %>% 
+	summarize(meanLifeExp = mean(lifeExp),
+            totalPop = sum(as.numeric(pop)))
+
+by_year_continent <- gapminder %>%
+	group_by(year,continent) %>% 
+	summarize(meanLifeExp = mean(lifeExp),
+            totalPop =sum(as.numeric(pop)))
+
+# Visualizing population over time
+ggplot(data=by_year,
+       aes(x=year,y=totalPop)) +
+	geom_point()
+
+# Visualizing population over time,starting at zero, for each continent
+ggplot(data=by_year_continent,
+       aes(x=year,y=totalPop,color=continent)) +
+	geom_point() +
+	expand_limits(y=0)
+
+```
+
+
+## gganimate
+**gganimate: A Grammar of Animated Graphics**
+
+```{r gapminder-static, layout="l-body-outset", fig.width=5, fig.height=4, echo=TRUE, eval=TRUE}
+library(tidyverse)
+library(gapminder)
+static_plot <- ggplot(gapminder,
+                     aes(gdpPercap, lifeExp,
+                         size = pop, colour = country)) +
+	geom_point(alpha = 0.7, show.legend = FALSE) +
+	scale_colour_manual(values = country_colors) +
+	scale_size(range = c(2, 12)) +
+	scale_x_log10() + theme_minimal() +
+	facet_wrap(~continent)
+static_plot
+```
+
+```{r gapminder-gganimate, layout="l-body-outset", fig.width=5, fig.height=4, echo=TRUE, eval=T}
+library(gganimate)
+animated_plot <- ggplot(gapminder,
+                        aes(gdpPercap, lifeExp,
+                            size = pop, colour = country)) +
+	geom_point(alpha = 0.7, show.legend = FALSE) +
+	scale_colour_manual(values = country_colors) +
+	scale_size(range = c(2, 12)) +
+	scale_x_log10() + theme_minimal() +
+	facet_wrap(~continent) +
+	# Here comes the gganimate specific bits
+	labs(title = 'Year: {frame_time}', # labels
+       x = 'GDP per capita', y = 'life expectancy') +
+	transition_time(year) + # the dynamic variable
+	ease_aes('linear')
+animated_plot
+```
+
+***
+# Part 5: Export & Wrap-up
+## Saving your plots
+### ggsave
+**Save a ggplot (or other grid object) with sensible defaults**
+
+```{r ggsave, eval=F, echo=TRUE}
+library(tidyverse)
+# Save your file name
+plot1 <- "my_plot1.tiff"
+
+# Save your absolute/relative path
+my_full_path <- paste(c("~/GitHub",
+                        "/workshop-tidyverse"), sep="/")
+
+# To save as a tab-delimited text file ...
+ggsave(filename=plot1,
+       plot=static_plot,
+       device="tiff",
+       path=my_full_path,
+       dpi=600)
+
+```
+
+## Saving your data files
+### write_delim
+**Write a data frame to a delimited file**
+
+```{r write_delim, eval=F, echo=TRUE}
+library(tidyverse)
+# Save your file name
+filename <- "my_new_data.txt"
+
+# Save your absolute/relative path
+my_full_path <- paste(c("~/GitHub",
+                        "/workshop-tidyverse"), sep="/")
+
+# To save as a tab-delimited text file ...
+write_tsv(x=my_newly_formatted_data, # your final reformatted dataset
+          path=paste(my_full_path, filename, "/"), # Absolute path recommended.
+          # However, you can directly use 'filename' here
+          # if you are saving the file in the same directory
+          # as your code.
+          col_names=T) # if you want the column names to be
+# saved in the first row, recommended
+
+# Alternatively, you could save it as a comma-separated text file
+write_csv(x=my_newly_formatted_data,
+          path=my_path,
+          col_names=T)
+# Or save it with any other delimiter
+# choose wisely, pick a delim that's not part of your dataframe
+write_delim(x=my_newly_formatted_data,
+            path=my_path,
+            col_names=T,
+            delim="---")
+```
+
+## *What you learnt today!*
+
+::: l-body-outset
+| Option      | Description                                        |
+|-------------|----------------------------------------------------|
+| **Part 1: Getting Started**                                      |
+| `install.packages`| Download and install packages from CRAN-like repositories or from local files |
+| `library`   | Library and require load and attach add-on packages|
+| **tidyverse > readr/readxl**                                     |
+| `read_delim`| Read a delimited file (incl csv, tsv) into a tibble|
+| `read_csv`  | read_csv() and read_tsv() are special cases of the general read_delim()|
+| `read_excel`| Read xls and xlsx files                            |
+| **Data snapshot**                                                |
+| `str`       | Compactly Display the Structure of an Arbitrary R Object|
+| `head`      | Return the First or Last Part of an Object         |
+| `glimpse`   | Get a glimpse of your data                         |
+| `View`      | Invoke a Data Viewer                               |
+| `kable`     | Create tables in LaTeX, HTML, Markdown and reStructuredText|
+| `paged_table`| Create a table in HTML with support for paging rows and columns|
+| **Part 2: tidyverse > tidyr**                                   |
+| `pivot_longer`    | Gather Columns Into Key-Value Pairs (COLS -> ROWS) |
+| `pivot_wider`    | Spread a key-value pair across multiple columns    |
+| `separate`  | Separate one column into multiple column           |
+| `unite`     | Unite multiple columns into one                    |
+| **Part 3: tidyverse > dplyr**                                       |
+| `filter`    | Return rows with matching conditions               |
+| `select`    | Select/rename variables by name                    |
+| `mutate`    | Add new variables                                  |
+| `transmute` | Adds new variables; drops existing variables       |
+| `arrange`   | Arrange rows by variables                          |
+| `summarise` | Reduces multiple values down to a single value     |
+| `group_by`  | Group by one or more variables                     |
+| `join`      | Join two tbls together: `left_join`, `right_join`, `inner_join`|
+| `bind`      | Efficiently bind multiple data frames by row and column: `bind_rows`, `bind_cols`|
+| `setops`    | Set operations: `intersect`, `union`, `setdiff`, `setequal`|
+| **Part 4: tidyverse > ggplot**                                   |
+| `ggplot`    | Create a new ggplot                                |
+| `gganimate` | gganimate: A Grammar of Animated Graphics          |
+| **Part 5: Export & Wrap-up**                                     |
+| **tidyverse > readr**                                            |
+| `ggsave`    | Save a ggplot (or other grid object) with sensible defaults|
+| `write_delim`| Write a data frame to a delimited file            |
+| `write_tsv` | write_delim customized for tab-separated values    |
+| `write_csv` | write_delim customized for comma-separated values  |
+:::
+
+***
+
+***
+
+## Credits
+[Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for this workshop.
+
+### Acknowledgements
+- [Krishnan Lab](https://thekrishnanlab.org)
+- [R-Ladies East Lansing](https://rladies-eastlansing.github.io), including Kayla Johnson, Nafiseh Haghtalab, Veronica Frans, Cara Feldscher
+- [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
+
+### Contact
+- Webpage: <https://jravilab.github.io> | <https://thekrishnanlab.org>
+- Email: <janani@msu.edu> | <arjun@msu.edu>
+- Twitter: [\@janani137](https://twitter.com/janani137) | [\@compbiologist](https://twitter.com/compbiologist)
+- GitHub: [\@jananiravi](https://github.com/jananiravi) | [\@arjunkrish](https://github.com/arjunkrish)
+
+## Additional resources {#refs}
+- You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
+- Other related [RLEL workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
+
+### Some awesome open-source books
+- Hands-On Programming with R: Grolemund #HOPR https://rstudio-education.github.io/hopr/
+- R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
+- R Programming for Data Science: Peng https://leanpub.com/rprogramming
+- Learning Statistics with R: Navarro https://learningstatisticswithr.com/book
+
+### Other helpful links
+- #TidyTuesday challenges | On [GitHub](https://github.com/rfordatascience/tidytuesday), [Twitter](https://twitter.com/search?q=%23TidyTuesday&src=typeahead_click).
+- gganimate: [thomasp85/gganimate](https://github.com/thomasp85/gganimate)
+- tidyexplain: [gadenbuie/tidyexplain](https://github.com/gadenbuie/tidyexplain)
+- Pipes (%>%): <datacamp.com/community/tutorials/pipe-r-tutorial>
+- Distill (theme for RMarkdown): https://rstudio.github.io/distill/
+- Google & [StackOverflow](https://stackoverflow.com/) are your best friends!

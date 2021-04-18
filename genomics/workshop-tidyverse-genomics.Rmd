@@ -15,17 +15,17 @@ author:
     orcid_id: 0000-0002-7980-4110
 date: "`r Sys.Date()`"
 output:
+  distill::distill_article:
+    toc: TRUE
+    toc_depth: 3
+  pdf_document:
+    toc: yes
   html_document:
     toc: yes
     toc_depth: 3
     toc_float:
       collapsed: yes
       smooth_scroll: yes
-  pdf_document:
-    toc: yes
-  distill::distill_article:
-    toc: TRUE
-    toc_depth: 3
   html_notebook:
     theme: flatly
     toc: yes
@@ -731,8 +731,8 @@ write_delim(x=my_newly_formatted_data,
 | `kable`     | Create tables in LaTeX, HTML, Markdown and reStructuredText|
 | `paged_table`| Create a table in HTML with support for paging rows and columns|
 |**Part 2** | `tidyverse` > `tidyr`                                   |
-| `gather`    | Gather Columns Into Key-Value Pairs (COLS -> ROWS) |
-| `spread`    | Spread a key-value pair across multiple columns    |
+| `pivot_longer`    | Gather Columns Into Key-Value Pairs (COLS -> ROWS) |
+| `pivot_wider`    | Spread a key-value pair across multiple columns    |
 | `separate`  | Separate one column into multiple column           |
 | `unite`     | Unite multiple columns into one                    |
 |**Part 3** | `tidyverse` > `dplyr`                                       |
