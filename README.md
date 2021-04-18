@@ -1,7 +1,8 @@
 # An intro to `Tidyverse`
 
 ## Overview
-This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics) [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder). [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
+This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder). <br>
+[Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
    - Loading packages
