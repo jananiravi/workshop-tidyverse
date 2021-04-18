@@ -36,14 +36,14 @@ By the end of this workshop, you will be able to load your genomic dataset, perf
 ## Setup
 ### Before the Workshop Begins
 1. Install the following software if you don’t yet have them. If you do have these installed, skip to #2:
-   1. **R** version 3.5+ (Current: 3.6.1) 
+   1. **R** version 3.6+ (Current: 4.0.5) 
    2. **RStudio** version 1.2+ (https://www.rstudio.com/products/rstudio/) OR use RStudio Cloud (https://rstudio.cloud)
-2. Ensure that your version of **R** is 3.5+. The latest version is 3.6.1.
+2. Ensure that your version of **R** is 3.6+. The latest version is 4.0.5.
    To check your R version, type in your console:
    `version`
-3. Check your **RStudio** version. It should be v1.2+
+3. Check your **RStudio** version. It should be v1.3+
 Open RStudio. In the top menu bar click: RStudio > About RStudio > 
-4. Install **tidyverse** & **here**: `install.packages(c("tidyverse", "here"))`
+4. Install **tidyverse**, **here**, **gapminder**, **gganimate**: <br> `install.packages(c("tidyverse", "here", "gapminder"))` <br> `devtools::install_github(‘thomasp85/gganimate’)`
 
 **Other Resources: Software Carpentry Video Tutorial for installing R and R Studio**
 
