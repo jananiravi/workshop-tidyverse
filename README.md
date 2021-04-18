@@ -1,8 +1,7 @@
-# Using `Tidyverse` for Genomics
+# An intro to `Tidyverse`
 
 ## Overview
-This repo contains the workshop material for using R/tidyverse to analyze & visualize processed genomics data! <br>
-[Code](https://github.com/jananiravi/tidyverse-genomics/tree/master/code) | [Presentation](https://github.com/jananiravi/tidyverse-genomics/tree/master/presentation) | [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
+This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics) [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder). [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
    - Loading packages
@@ -31,7 +30,7 @@ This repo contains the workshop material for using R/tidyverse to analyze & visu
 ## Learning Objectives
 By the end of this workshop, you will be able to load your genomic dataset, perform basic data tidying & wrangling, data visualization, and save/export your results using `tidyverse`! Hopefully, you will also have a newfound appreciation for reproducible research and R!
 
-<img src="https://github.com/jananiravi/tidyverse-genomics/blob/master/tidyverse-overview.png" alt="" width="50%" height="50%">
+<img src="https://github.com/jananiravi/workshop-tidyverse/blob/master/tidyverse-overview.png" alt="" width="50%" height="50%">
 
 ## Setup
 ### Before the Workshop Begins
@@ -69,7 +68,7 @@ Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/
 
 ### Acknowledgements
 - [Krishnan Lab](https://thekrishnanlab.org)
-- [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
+- [R-Ladies East Lansing](https://rladies-eastlansing.github.io), incl. Nafiseh Haghtalab, Kayla Johnson, Veronica Frans, Cara Feldscher
 - [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 
 ### Contact
