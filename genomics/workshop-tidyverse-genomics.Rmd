@@ -54,7 +54,7 @@ We conduct R-related workshops & meetups regularly!
 So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
 
 # Part 1: Getting Started w/ `readr`
-You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
+You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/workshop-tidyverse).
 Other related workshops & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
 
 ## Installation and set-up
@@ -157,7 +157,7 @@ read_excel(path="path/to/excel.xls",
 
 ## Tip: Always open .Rproj and use relative paths with here()
 ## Example with here()
-read_tsv(file=here("data/GSE69360_RNAseq.counts.txt"), col_names=T)
+read_tsv(file=here("genomics/GSE69360_RNAseq.counts.txt"), col_names=T)
 ```
 
 
@@ -412,7 +412,7 @@ gene_loc %>%
 
 # Saving your data locally
 gene_loc %>%
-  write_tsv(here("data/GSE69360.gene-locations.txt"))
+  write_tsv(here("genomics/GSE69360.gene-locations.txt"))
 
 ```
 
@@ -792,7 +792,7 @@ write_delim(x=my_newly_formatted_data,
 - GitHub: [\@jananiravi](https://github.com/jananiravi) | [\@arjunkrish](https://github.com/arjunkrish)
 
 ## Additional resources {#refs}
-- You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
+- You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/workshop-tidyverse).
 - Other related [RLEL workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
 
 ### Some awesome open-source books
