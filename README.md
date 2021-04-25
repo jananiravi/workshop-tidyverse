@@ -83,6 +83,7 @@ Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/
 - You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/workshop-tidyverse).
 - Other related [RLEL workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
 - [Computational Biology/Bioinformatics Resources](https://github.com/jananiravi/compbio-gists) collated by Arjun and me.
+- [Data-to-viz.com](https://www.data-to-viz.com) & [R Graph Gallery](https://www.r-graph-gallery.com)
 
 ### Some awesome open-source books
 - R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
