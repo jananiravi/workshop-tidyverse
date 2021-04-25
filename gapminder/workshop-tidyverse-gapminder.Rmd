@@ -471,18 +471,17 @@ animated_plot
 ```{r ggsave, eval=F, echo=TRUE}
 library(tidyverse)
 # Save your file name
-plot1 <- "my_plot1.tiff"
+plot1 <- "gapminder_static_plot.png"
 
 # Save your absolute/relative path
-my_full_path <- paste(c("~/GitHub",
-                        "/workshop-tidyverse"), sep="/")
+my_full_path <- here("gapminder")
 
 # To save as a tab-delimited text file ...
 ggsave(filename=plot1,
        plot=static_plot,
-       device="tiff",
+       device="png",
        path=my_full_path,
-       dpi=600)
+       dpi=300)
 
 ```
 
@@ -574,7 +573,7 @@ write_delim(x=my_newly_formatted_data,
 [Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for this workshop.
 
 ### Acknowledgements
-- [Krishnan Lab](https://thekrishnanlab.org)
+- [Krishnan Lab](https://thekrishnanlab.org) | [JRaviLab](https://jravilab.github.io)
 - [R-Ladies East Lansing](https://rladies-eastlansing.github.io), including Kayla Johnson, Nafiseh Haghtalab, Veronica Frans, Cara Feldscher
 - [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 

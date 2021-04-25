@@ -659,18 +659,18 @@ plot_chry_highvar_boxplot
 ### ggsave
 **Save a ggplot (or other grid object) with sensible defaults**
 
-```{r ggsave, eval=F, echo=TRUE}
+```{r ggsave, eval=T, echo=TRUE}
 library(tidyverse)
 # Save your file name
-plot1 <- "my_plot1.tiff"
+plot1 <- "chr_highvar.png"
 
 # Save your absolute/relative path
-my_full_path <- here("data")
+my_full_path <- here("genomics")
 
 # To save as a tab-delimited text file ...
 ggsave(filename=plot1,
-       plot=static_plot,
-       device="tiff",
+       plot=plot_chry_highvar_boxplot,
+       device="png",
        path=my_full_path,
        dpi=600)
 
@@ -781,7 +781,7 @@ write_delim(x=my_newly_formatted_data,
 [Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for this workshop.
 
 ### Acknowledgements
-- [Krishnan Lab](https://thekrishnanlab.org)
+- [Krishnan Lab](https://thekrishnanlab.org) | [JRaviLab](https://jravilab.github.io)
 - [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
 - [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 
