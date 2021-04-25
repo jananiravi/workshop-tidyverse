@@ -2,7 +2,8 @@
 
 ## Overview
 This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder). <br>
-[Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup)
+[Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup) | [Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos)
+
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
    - Loading packages
@@ -65,22 +66,23 @@ Or you can use your package manager (e.g. for Debian/Ubuntu run `sudo apt-get in
 Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/download/#download).
 
 ## Credits
-[Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for this workshop.
+[Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for the genomics part for this workshop; [R-Ladies East Lansing](https://rladies-eastlansing.github.io) members (Kayla J, Nafiseh H, Veronica F, Cara F, Camille A) and I helped with the gapminder material.
 
 ### Acknowledgements
-- [Krishnan Lab](https://thekrishnanlab.org)
-- [R-Ladies East Lansing](https://rladies-eastlansing.github.io), incl. Nafiseh Haghtalab, Kayla Johnson, Veronica Frans, Cara Feldscher
+- [Krishnan Lab](https://thekrishnanlab.org) | [JRaviLab](https://jravilab.github.io)
+- [R-Ladies East Lansing](https://rladies-eastlansing.github.io), incl. Nafiseh Haghtalab, Kayla Johnson, Veronica Frans, Cara Feldscher, Camille Archer
 - [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 
 ### Contact
-- Webpage: <https://jravilab.github.io> | <https://thekrishnanlab.org>
-- Email: <janani@msu.edu> | <arjun@msu.edu>
-- Twitter: [@janani137](https://twitter.com/janani137) | [@compbiologist](https://twitter.com/compbiologist)
-- GitHub: [@jananiravi](https://github.com/jananiravi) | [@arjunkrish](https://github.com/arjunkrish)
+- Webpage: <https://jravilab.github.io> | <https://thekrishnanlab.org> | <https://rladies-eastlansing.github.io>
+- Email: <janani@msu.edu> | <arjun@msu.edu> | <eastlansing@rladies.org>
+- Twitter: [@janani137](https://twitter.com/janani137) | [@compbiologist](https://twitter.com/compbiologist) | [@RLadiesELansing](https://twitter.com/RLadiesELansing)
+- GitHub: [@jananiravi](https://github.com/jananiravi) | [@arjunkrish](https://github.com/arjunkrish) | [@RLadies-EastLansing](https://github.com/rladies-eastlansing)
 
 ## Additional resources
-- You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/tidyverse-genomics).
+- You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/workshop-tidyverse).
 - Other related [RLEL workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
+- [Computational Biology/Bioinformatics Resources](https://github.com/jananiravi/compbio-gists) collated by Arjun and me.
 
 ### Some awesome open-source books
 - R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
