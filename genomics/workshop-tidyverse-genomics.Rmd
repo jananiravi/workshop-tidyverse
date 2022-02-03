@@ -5,7 +5,7 @@ description: |
 author:
   - name: Janani Ravi
     url: https://jravilab.github.io
-    affiliation: PDI, MSU | R-Ladies East Lansing
+    affiliation: PDI, MMG, MSU | R-Ladies East Lansing
     affiliation_url: https://rladies-eastlansing.github.io
     orcid_id: 0000-0001-7443-925X
   - name: Arjun Krishnan
@@ -20,15 +20,15 @@ output:
     toc_depth: 3
   pdf_document:
     toc: yes
+  html_notebook:
+    theme: flatly
+    toc: yes
   html_document:
     toc: yes
     toc_depth: 3
     toc_float:
       collapsed: yes
       smooth_scroll: yes
-  html_notebook:
-    theme: flatly
-    toc: yes
 editor_options:
   chunk_output_type: console
 always_allow_html: true
@@ -44,13 +44,13 @@ knitr::opts_chunk$set(
 ```
 
 ### About me
-I am a computational biologist, an Asst. Professor in the department of Pathobiology & Diagnostic Investigation at Michigan State University.
+I am a computational biologist, an Asst. Professor in the departments of Pathobiology & Diagnostic Investigation and Microbiology & Molecular Genetics at Michigan State University.
 In our group, we develop computational approaches to understand infectious disease biology.
 Check out my [webpage](https://jravilab.github.io) for more info.
 You can reach me [here](https://jravilab.github.io/#contact).
 
-I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io) group on campus.
-We conduct R-related workshops & meetups regularly!
+I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io), Women+ Data Science, and AsiaR.
+We conduct R and data science related meetups & workshops regularly!
 So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
 
 # Part 1: Getting Started w/ `readr`
@@ -75,7 +75,7 @@ Use Help [Page #1](https://www.rstudio.com/products/rstudio/#Desktop) &
 ### Install R
 *... if you haven't already!*
 The RStudio startup message should specify your current local version of R.
-For _e.g.,_ `R v4.0.5`
+For _e.g.,_ `R v4.1.2`
 
 - [Download R](https://cran.r-project.org)
 - [*Update to the latest version of R?*](https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol)
@@ -99,7 +99,7 @@ Explore the [RLEL workshops](https://github.com/rladies-eastlansing/meetup-prese
 - For the time-being install the individual packages using `install.packages("PACKAGENAME")`
 - Check out the whole `tidyverse` suite of packages [here](https://www.tidyverse.org/packages/)
 
-```{r tidyverse, eval=FALSE,echo=TRUE}
+```{r tidyverse, eval=FALSE, echo=TRUE}
 # If tidyverse installation fails, install individual constituent packages this way...
 install.packages("readr")    # Importing data files
 install.packages("tidyr")    # Tidy Data
@@ -324,7 +324,7 @@ gse69360 %>%
 # Excluding columns matching a condition
 gse69360 %>%
   select(-matches("[AF]_")) %>%
-  head(., 10) %>% View()
+  head(., 10) #%>% View()
 
 # Storing gene location information in a seprate data frame
 gene_loc <- gse69360 %>%                                            # saving output to a variable
@@ -337,7 +337,7 @@ gene_loc <- gse69360 %>%                                            # saving out
 
 # Check to see if you have what you expected!
 gene_loc
-View(head(gene_loc, 10))
+head(gene_loc, 10)
 
 # Creating new variables
 gene_loc %>%
@@ -805,6 +805,5 @@ write_delim(x=my_newly_formatted_data,
 - #TidyTuesday challenges | On [GitHub](https://github.com/rfordatascience/tidytuesday), [Twitter](https://twitter.com/search?q=%23TidyTuesday&src=typeahead_click).
 - gganimate: [thomasp85/gganimate](https://github.com/thomasp85/gganimate)
 - tidyexplain: [gadenbuie/tidyexplain](https://github.com/gadenbuie/tidyexplain)
-- Pipes (%>%): <datacamp.com/community/tutorials/pipe-r-tutorial>
 - Distill (theme for RMarkdown): https://rstudio.github.io/distill/
 - Google & [StackOverflow](https://stackoverflow.com/) are your best friends!
