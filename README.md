@@ -1,4 +1,5 @@
-# An intro to `Tidyverse`
+# An Intro to `R`/`Tidyverse`
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 ## Overview
 This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder). <br>
@@ -74,7 +75,7 @@ Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/
 - [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 
 ### Contact
-- Webpage: <https://jravilab.github.io> | <https://thekrishnanlab.org> | <https://rladies-eastlansing.github.io>
+- Webpage: <jravilab.github.io> | <thekrishnanlab.org> | <github.com/rladies-eastlansing>
 - Email: <janani@msu.edu> | <arjun@msu.edu> | <eastlansing@rladies.org>
 - Twitter: [@janani137](https://twitter.com/janani137) | [@compbiologist](https://twitter.com/compbiologist) | [@RLadiesELansing](https://twitter.com/RLadiesELansing)
 - GitHub: [@jananiravi](https://github.com/jananiravi) | [@arjunkrish](https://github.com/arjunkrish) | [@RLadies-EastLansing](https://github.com/rladies-eastlansing)
