@@ -1,6 +1,10 @@
 # An Intro to `R`/`Tidyverse`
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
+[Overview](https://github.com/jananiravi/workshop-tidyverse/#overview) | [Learning Objectives](https://github.com/jananiravi/workshop-tidyverse/#learning-objectives) | [Setup](https://github.com/jananiravi/workshop-tidyverse/#setup) | [Credits](https://github.com/jananiravi/workshop-tidyverse/#credits) | [Contact](https://github.com/jananiravi/workshop-tidyverse/#contact) | [Additional Resources](https://github.com/jananiravi/workshop-tidyverse/#additional-resources)
+
+***
+
 ## Overview
 This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder). <br>
 [Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup) | [Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos)
@@ -38,9 +42,9 @@ By the end of this workshop, you will be able to load your genomic dataset, perf
 ## Setup
 ### Before the Workshop Begins
 1. Install the following software if you don’t yet have them. If you do have these installed, skip to #2:
-   1. **R** version 3.6+ (Current: 4.0.5) 
-   2. **RStudio** version 1.2+ (https://www.rstudio.com/products/rstudio/) OR use RStudio Cloud (https://rstudio.cloud)
-2. Ensure that your version of **R** is 3.6+. The latest version is 4.0.5.
+   1. **R** version `3.6+` (Current: `4.2.0`) | [Download R](https://www.r-project.org/)
+   2. **RStudio** version `1.3+` (https://www.rstudio.com/products/rstudio/) OR use RStudio Cloud (https://rstudio.cloud)
+2. Ensure that your version of **R** is 3.6+. The latest version is `4.2.0`.
    To check your R version, type in your console:
    `version`
 3. Check your **RStudio** version. It should be v1.3+
@@ -66,6 +70,8 @@ You can download the binary files for your distribution from [CRAN](https://cran
 Or you can use your package manager (e.g. for Debian/Ubuntu run `sudo apt-get install r-base` and for Fedora run `sudo dnf install R`).
 Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/download/#download).
 
+***
+
 ## Credits
 [Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for the genomics part for this workshop; [R-Ladies East Lansing](https://rladies-eastlansing.github.io) members (Kayla J, Nafiseh H, Veronica F, Cara F, Camille A) and I helped with the gapminder material.
 
@@ -74,11 +80,21 @@ Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/
 - [R-Ladies East Lansing](https://rladies-eastlansing.github.io), incl. Nafiseh Haghtalab, Kayla Johnson, Veronica Frans, Cara Feldscher, Camille Archer
 - [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 
-### Contact
-- Webpage: <jravilab.github.io> | <thekrishnanlab.org> | <github.com/rladies-eastlansing>
+### License
+This work is licensed under a BSD-3-Clause License.
+
+### Contributing
+- If you like it, leave your star in this project 🌟
+- If you would like to suggest/contribute to this project, feel free to open a issue 💟
+- Please follow our contributing guidelines (coming soon!).
+
+## Contact
+- Webpage: [jravilab.github.io](//jravilab.github.io) | [thekrishnanlab.org](//thekrishnanlab.org) | [github.com/rladies-eastlansing](//github.com/rladies-eastlansing)
 - Email: <janani@msu.edu> | <arjun@msu.edu> | <eastlansing@rladies.org>
 - Twitter: [@janani137](https://twitter.com/janani137) | [@compbiologist](https://twitter.com/compbiologist) | [@RLadiesELansing](https://twitter.com/RLadiesELansing)
 - GitHub: [@jananiravi](https://github.com/jananiravi) | [@arjunkrish](https://github.com/arjunkrish) | [@RLadies-EastLansing](https://github.com/rladies-eastlansing)
+
+***
 
 ## Additional resources
 - You can access all relevant material pertaining to this workshop [here](https://jananiravi.github.io/workshop-tidyverse).
