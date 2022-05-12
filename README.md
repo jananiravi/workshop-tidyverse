@@ -3,11 +3,22 @@
 
 [Overview](https://github.com/jananiravi/workshop-tidyverse/#overview) | [Learning Objectives](https://github.com/jananiravi/workshop-tidyverse/#learning-objectives) | [Setup](https://github.com/jananiravi/workshop-tidyverse/#setup) | [Credits](https://github.com/jananiravi/workshop-tidyverse/#credits) | [Contact](https://github.com/jananiravi/workshop-tidyverse/#contact) | [Additional Resources](https://github.com/jananiravi/workshop-tidyverse/#additional-resources)
 
+### Next workshop
+- 2022-05-21 8–11a EST | [International Society for Computational Biology, ISCB Academy Tutorial](https://www.iscb.org/iscbacademy) | [Register Here](https://www.iscb.org/cms_addon/registration_conference/tutorial06)
+![](https://www.iscb.org/images/stories/iscbacademy/banner.ISCBacademy.png)
+
+### Past workshops
+[Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos)
+- 2021: R-Ladies Tunis, Africa
+- 2021: R-Ladies Bangalore, India
+- 2019: Indian Institute of Technology Madras (IITM) Chennai, India (w/ Praveena Mathews)
+- 2019–2022: PBGB R seminar course (Spring of '19, '20, '22), Michigan State University
+- Other related ones: [R-Ladies East Lansing](//github.com/rladies-eastlansing)
+
 ***
 
 ## Overview
-This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder). <br>
-[Cheatsheets](https://github.com/jananiravi/cheatsheets) | [Setup instructions](/README.md/#Setup) | [Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos)
+This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder).
 
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
@@ -43,13 +54,14 @@ By the end of this workshop, you will be able to load your genomic dataset, perf
 ### Before the Workshop Begins
 1. Install the following software if you don’t yet have them. If you do have these installed, skip to #2:
    1. **R** version `3.6+` (Current: `4.2.0`) | [Download R](https://www.r-project.org/)
-   2. **RStudio** version `1.3+` (https://www.rstudio.com/products/rstudio/) OR use RStudio Cloud (https://rstudio.cloud)
-2. Ensure that your version of **R** is 3.6+. The latest version is `4.2.0`.
+   2. **RStudio** version `1.3+` (Current: `2022.02.2-485`) | [Download RStudio](https://www.rstudio.com/products/rstudio/download/) OR use [RStudio Cloud](https://rstudio.cloud)
+2. Ensure that your version of **R** is `3.6+`. The latest version is `4.2.0`.
    To check your R version, type in your console:
    `version`
-3. Check your **RStudio** version. It should be v1.3+
+3. Check your **RStudio** version. It should be `v1.3+`
 Open RStudio. In the top menu bar click: RStudio > About RStudio > 
-4. Install **tidyverse**, **here**, **gapminder**, **gganimate**: <br> `install.packages(c("tidyverse", "here", "gapminder"))` <br> `devtools::install_github(‘thomasp85/gganimate’)`
+4. Install **tidyverse**, **here**, **gapminder** (not needed for genomics workshop), **gganimate**: <br> `install.packages(c("tidyverse", "here", "gapminder"))` <br> `devtools::install_github(‘thomasp85/gganimate’)`
+5. Access useful [Cheatsheets here](https://github.com/jananiravi/cheatsheets).
 
 **Other Resources: Software Carpentry Video Tutorial for installing R and R Studio**
 
