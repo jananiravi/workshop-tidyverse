@@ -4,7 +4,7 @@
 [Overview](https://github.com/jananiravi/workshop-tidyverse/#overview) | [Learning Objectives](https://github.com/jananiravi/workshop-tidyverse/#learning-objectives) | [Setup](https://github.com/jananiravi/workshop-tidyverse/#setup) | [Credits](https://github.com/jananiravi/workshop-tidyverse/#credits) | [Contact](https://github.com/jananiravi/workshop-tidyverse/#contact) | [Additional Resources](https://github.com/jananiravi/workshop-tidyverse/#additional-resources)
 
 ### Next workshop
-- 2022-05-21 8–11a EST | [International Society for Computational Biology, ISCB Academy Tutorial](https://www.iscb.org/iscbacademy) | [Register Here](https://www.iscb.org/cms_addon/registration_conference/tutorial06)
+- 2022-05-28 8–11a EST | [International Society for Computational Biology, ISCB Academy Tutorial](https://www.iscb.org/iscbacademy) | [Register Here](https://www.iscb.org/cms_addon/registration_conference/tutorial06)
 ![](https://www.iscb.org/images/stories/iscbacademy/banner.ISCBacademy.png)
 
 ### Past workshops
@@ -18,7 +18,7 @@
 ***
 
 ## Overview
-This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [genomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/genomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder).
+This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [transcriptomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/transcriptomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder).
 
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
@@ -60,7 +60,7 @@ By the end of this workshop, you will be able to load your genomic dataset, perf
    `version`
 3. Check your **RStudio** version. It should be `v1.3+`
 Open RStudio. In the top menu bar click: RStudio > About RStudio > 
-4. Install **tidyverse**, **here**, **gapminder** (not needed for genomics workshop), **gganimate**: <br> `install.packages(c("tidyverse", "here", "gapminder"))` <br> `devtools::install_github(‘thomasp85/gganimate’)`
+4. Install **tidyverse**, **here**, **gapminder** (not needed for transcriptomics workshop), **gganimate**: <br> `install.packages(c("tidyverse", "here", "gapminder"))` <br> `devtools::install_github(‘thomasp85/gganimate’)`
 5. Access useful [Cheatsheets here](https://github.com/jananiravi/cheatsheets).
 
 **Other Resources: Software Carpentry Video Tutorial for installing R and R Studio**
@@ -85,7 +85,7 @@ Also, please install the [RStudio IDE](https://www.rstudio.com/products/rstudio/
 ***
 
 ## Credits
-[Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for the genomics part for this workshop; [R-Ladies East Lansing](https://rladies-eastlansing.github.io) members (Kayla J, Nafiseh H, Veronica F, Cara F, Camille A) and I helped with the gapminder material.
+[Arjun Krishnan](https://thekrishnanlab.org) and [I](https://jravilab.github.io) co-developed the content for the transcriptomics part for this workshop; [R-Ladies East Lansing](https://rladies-eastlansing.github.io) members (Kayla J, Nafiseh H, Veronica F, Cara F, Camille A) and I helped with the gapminder material.
 
 ### Acknowledgements
 - [Krishnan Lab](https://thekrishnanlab.org) | [JRaviLab](https://jravilab.github.io)
