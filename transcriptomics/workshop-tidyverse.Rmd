@@ -1,7 +1,7 @@
 ---
-title: "Introduction to Tidyverse (using transcriptomic data)"
+title: "Introduction to Tidyverse | using transcriptomic data"
 description: |
- RMarkdown file to accompany the Intro to R/Tidyverse workshop
+ RMarkdown file to accompany the Intro to R/Tidyverse workshop (using processed transcriptomic data)
 author:
   - name: Janani Ravi
     url: https://jravilab.github.io
@@ -14,6 +14,7 @@ author:
     affiliation_url: https://cmse.msu.edu/
     orcid_id: 0000-0002-7980-4110
 date: "`r Sys.Date()`"
+citation_url: https://github.com/jananiravi/workshop-tidyverse
 output:
   distill::distill_article:
     toc: TRUE
@@ -727,8 +728,8 @@ write_delim(x=my_newly_formatted_data,
 | `str`       | Compactly Display the Structure of an Arbitrary R Object|
 | `head`      | Return the First or Last Part of an Object         |
 | `glimpse`   | Get a glimpse of your data                         |
-| `View`      | Invoke a Data Viewer                               |
-| `kable`     | Create tables in LaTeX, HTML, Markdown and reStructuredText|
+| `View`      | Invoke a Data Viewer (pop-up, requires XQuartz/X11)       |
+| `kable`     | Create tables in LaTeX, HTML, Markdown and reStructuredText |
 | `paged_table`| Create a table in HTML with support for paging rows and columns|
 |**Part 2** | `tidyverse` > `tidyr`                                   |
 | `pivot_longer`    | Gather Columns Into Key-Value Pairs (COLS -> ROWS) |
@@ -783,11 +784,10 @@ write_delim(x=my_newly_formatted_data,
 ### Acknowledgements
 - [Krishnan Lab](https://thekrishnanlab.org) | [JRaviLab](https://jravilab.github.io)
 - [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
-- [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
-- [ISCB Academy](https://www.iscb.org/iscbacademy)
+- Hosts: [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis) | [MSU](//msu.edu) | [ISCB Academy](https://www.iscb.org/iscbacademy)
 
 ### Contact
-- Webpage: <https://jravilab.github.io> | <https://thekrishnanlab.org>
+- Webpage: [jravilab.github.io](//jravilab.github.io) | [thekrishnanlab.org](//thekrishnanlab.org)
 - Email: <janani@msu.edu> | <arjun@msu.edu>
 - Twitter: [\@janani137](https://twitter.com/janani137) | [\@compbiologist](https://twitter.com/compbiologist)
 - GitHub: [\@jananiravi](https://github.com/jananiravi) | [\@arjunkrish](https://github.com/arjunkrish)
