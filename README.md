@@ -4,21 +4,21 @@
 [Overview](https://github.com/jananiravi/workshop-tidyverse/#overview) | [Learning Objectives](https://github.com/jananiravi/workshop-tidyverse/#learning-objectives) | [Setup](https://github.com/jananiravi/workshop-tidyverse/#setup) | [Credits](https://github.com/jananiravi/workshop-tidyverse/#credits) | [Contact](https://github.com/jananiravi/workshop-tidyverse/#contact) | [Additional Resources](https://github.com/jananiravi/workshop-tidyverse/#additional-resources)
 
 ### Next workshop
-- 2022-05-28 8–11a EST | [International Society for Computational Biology, ISCB Academy Tutorial](https://www.iscb.org/iscbacademy) | [Register Here](https://www.iscb.org/cms_addon/registration_conference/tutorial06)
-![](https://www.iscb.org/images/stories/iscbacademy/banner.ISCBacademy.png)
+- TBD
 
 ### Past workshops
 [Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos)
+- 2022: [International Society for Computational Biology, ISCB Academy Tutorial](https://www.iscb.org/iscbacademy)
 - 2021: R-Ladies Tunis, Africa
 - 2021: R-Ladies Bangalore, India
 - 2019: Indian Institute of Technology Madras (IITM) Chennai, India (w/ Praveena Mathews)
 - 2019–2022: PBGB R seminar course (Spring of '19, '20, '22), Michigan State University
-- Other related ones: [R-Ladies East Lansing](//github.com/rladies-eastlansing)
+- Other related ones: [R-Ladies East Lansing](https://github.com/rladies-eastlansing)
 
 ***
 
 ## Overview
-This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [transcriptomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/transcriptomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder).
+This repo contains the workshop material for using R/tidyverse to analyze & visualize diverse datasets, _e.g.,_ [transcriptomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/transcriptomics), [gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder) | as HTML ([transcriptomics](https://jananiravi.github.io/workshop-tidyverse/transcriptomics/workshop-tidyverse) & [gapminder](https://jananiravi.github.io/workshop-tidyverse/gapminder/workshop-tidyverse-gapminder)).
 
 - **Part 1: Getting started w/ `readr`**
    - Installation and Setup | Cheatsheets
@@ -101,7 +101,7 @@ This work is licensed under a BSD-3-Clause License.
 - Please follow our contributing guidelines (coming soon!).
 
 ## Contact
-- Webpage: [jravilab.github.io](//jravilab.github.io) | [thekrishnanlab.org](//thekrishnanlab.org) | [github.com/rladies-eastlansing](//github.com/rladies-eastlansing)
+- Webpage: [jravilab.github.io](https://jravilab.github.io) | [thekrishnanlab.org](https://thekrishnanlab.org) | [github.com/rladies-eastlansing](https://github.com/rladies-eastlansing)
 - Email: <janani@msu.edu> | <arjun@msu.edu> | <eastlansing@rladies.org>
 - Twitter: [@janani137](https://twitter.com/janani137) | [@compbiologist](https://twitter.com/compbiologist) | [@RLadiesELansing](https://twitter.com/RLadiesELansing)
 - GitHub: [@jananiravi](https://github.com/jananiravi) | [@arjunkrish](https://github.com/arjunkrish) | [@RLadies-EastLansing](https://github.com/rladies-eastlansing)
@@ -116,6 +116,6 @@ This work is licensed under a BSD-3-Clause License.
 
 ### Some awesome open-source books
 - R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
-- Hands-On Programming with R: Grolemund #HOPR https://rstudio-education.github.io/hopr/
+- Hands-On Programming with R: Grolemund #HOPR https://rstudio-education.github.io/hopr
 - R Programming for Data Science: Peng https://leanpub.com/rprogramming
 - Learning Statistics with R: Navarro https://learningstatisticswithr.com/book

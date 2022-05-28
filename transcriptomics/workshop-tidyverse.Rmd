@@ -172,8 +172,8 @@ read_tsv(file=here("transcriptomics/GSE69360_RNAseq.counts.txt"), col_names=T)
 
 ```{r data-structure, echo=TRUE, eval=F}
 str(gse69360)              # Structure of the dataframe
-gse69360                   # Data is in a cleaend up 'tibble' format by default
-head(gse69360)             # Shows the top few observations (rows) of your data frame
+gse69360                   # Data is in a cleaned up 'tibble' format by default
+head(gse69360)             # Shows the top few observations (rows) of your dataframe
 glimpse(gse69360)          # Info-dense summary of the data
 View(head(gse69360, 100))  # View data in a visual GUI-based spreadsheet-like format
 
@@ -200,7 +200,7 @@ paged_table(gse69360)
 ***
 # Part 2: Reshaping data w/ `tidyr`
 ```{r tidyr, echo=TRUE, eval=FALSE}
-## legacy tidyverse funcgions
+## legacy tidyverse functions
 gather()   # Gather COLUMNS -> ROWS
 spread()   # Spread ROWS -> COLUMNS
 
@@ -327,7 +327,7 @@ gse69360 %>%
   select(-matches("[AF]_")) %>%
   head(., 10) #%>% View()
 
-# Storing gene location information in a seprate data frame
+# Storing gene location information in a separate dataframe
 gene_loc <- gse69360 %>%                                            # saving output to a variable
   select(-matches("[AF]_")) %>%                                     # select columns
   mutate(Geneid = gsub("\\.[0-9]*$", "", Geneid)) %>%               # remove isoform no.
@@ -405,7 +405,7 @@ gene_loc %>%
             maxLength = max(Length),
             longestGene = last(Geneid))
 
-# Renaming chromsosomes & declaring them as factors w/ an intrinsic order
+# Renaming chromosomes & declaring them as factors w/ an intrinsic order
 # gene_loc$Chr <- factor(gene_loc$Chr,
 #                        levels = paste("chr",
 #                                       c((1:22), "X", "Y", "M"),
@@ -446,7 +446,7 @@ summary(logcpm)
 gene_logcpm <- gene_counts %>%                              # a new dataframe with logcpm values
   select(Geneid) %>%
   bind_cols(logcpm) %>%                                     # bind the logcpm matrix to the geneids
-  gather(-Geneid, key = "Sample", value = "Logcpm") %>%     # convert to tidy data
+  pivot_longer(-Geneid, names_to="Sample", values_to="Logcpm") %>%     # convert to tidy data
   separate(Sample,                                          # cleanup complex variables
            into = c("Source", "Stage", "Tissue"),
            sep = c(1,2),
@@ -610,7 +610,7 @@ plot_sample_bxp
 plot_ffcolon_scatter <- gene_logcpm %>%
   filter(Sample == "AF_Colon" | Sample == "BF_Colon") %>%
   select(Geneid, Sample, Logcpm) %>%
-  spread(key = Sample, value = Logcpm) %>%
+  pivot_wider(names_from = Sample, values_from = Logcpm) %>%
   ggplot(aes(x = AF_Colon, y = BF_Colon)) +
   geom_point(alpha = 0.1, size = 0.5) +
   geom_smooth(method=lm) +
@@ -679,7 +679,7 @@ ggsave(filename=plot1,
 
 ## Saving your data files
 ### write_delim
-**Write a data frame to a delimited file**
+**Write a dataframe to a delimited file**
 
 ```{r write_delim, eval=F, echo=TRUE}
 library(tidyverse)
@@ -745,8 +745,8 @@ write_delim(x=my_newly_formatted_data,
 | `arrange`   | Arrange rows by variables                          |
 | `summarise` | Reduces multiple values down to a single value     |
 | `group_by`  | Group by one or more variables                     |
-| `join`      | Join two tbls together: `left_join`, `right_join`, `inner_join`|
-| `bind`      | Efficiently bind multiple data frames by row and column: `bind_rows`, `bind_cols`|
+| `join`      | Join two dataframes together: `left_join`, `right_join`, `inner_join`|
+| `bind`      | Efficiently bind multiple dataframes by row and column: `bind_rows`, `bind_cols`|
 | `setops`    | Set operations: `intersect`, `union`, `setdiff`, `setequal`|
 |**Part 4** | `tidyverse` > `ggplot`                                   |
 | `ggplot`    | Create a new ggplot                                |
@@ -771,7 +771,7 @@ write_delim(x=my_newly_formatted_data,
 |**Part 5** | **Export & Wrap-up**                                     |
 |*Export* | `tidyverse` > `readr`                                            |
 | `ggsave`    | Save a ggplot (or other grid object) with sensible defaults|
-| `write_delim`| Write a data frame to a delimited file            |
+| `write_delim`| Write a dataframe to a delimited file            |
 | `write_tsv` | write_delim customized for tab-separated values    |
 | `write_csv` | write_delim customized for comma-separated values  |
 :::
@@ -784,20 +784,22 @@ write_delim(x=my_newly_formatted_data,
 ### Acknowledgements
 - [Krishnan Lab](https://thekrishnanlab.org) | [JRaviLab](https://jravilab.github.io)
 - [R-Ladies East Lansing](https://rladies-eastlansing.github.io)
-- Hosts: [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis) | [MSU](//msu.edu) | [ISCB Academy](https://www.iscb.org/iscbacademy)
+- Hosts: [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis) | [MSU](https://msu.edu) | [ISCB Academy](https://www.iscb.org/iscbacademy)
 
 ### Contact
-- Webpage: [jravilab.github.io](//jravilab.github.io) | [thekrishnanlab.org](//thekrishnanlab.org)
+- Webpage: [jravilab.github.io](https://jravilab.github.io) | [thekrishnanlab.org](https://thekrishnanlab.org)
 - Email: <janani@msu.edu> | <arjun@msu.edu>
 - Twitter: [\@janani137](https://twitter.com/janani137) | [\@compbiologist](https://twitter.com/compbiologist)
 - GitHub: [\@jananiravi](https://github.com/jananiravi) | [\@arjunkrish](https://github.com/arjunkrish)
 
 ## Additional resources {#refs}
 - You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/workshop-tidyverse).
-- Other related [RLEL workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
+- Other related [R-Ladies East Lansing workshops](http://github.com/rladies-eastlansing/meetup-presentations) & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
+- [Computational biology gists](https://github.com/jananiravi/compbio-gists)
+- [Data-to-viz.com](https://www.data-to-viz.com) and [R Graph Gallery](https://r-graph-gallery.com)
 
 ### Some awesome open-source books
-- Hands-On Programming with R: Grolemund #HOPR https://rstudio-education.github.io/hopr/
+- Hands-On Programming with R: Grolemund #HOPR https://rstudio-education.github.io/hopr
 - R for Data Science: Wickham & Grolemund #R4DS https://r4ds.had.co.nz
 - R Programming for Data Science: Peng https://leanpub.com/rprogramming
 - Learning Statistics with R: Navarro https://learningstatisticswithr.com/book
@@ -806,5 +808,5 @@ write_delim(x=my_newly_formatted_data,
 - #TidyTuesday challenges | On [GitHub](https://github.com/rfordatascience/tidytuesday), [Twitter](https://twitter.com/search?q=%23TidyTuesday&src=typeahead_click).
 - gganimate: [thomasp85/gganimate](https://github.com/thomasp85/gganimate)
 - tidyexplain: [gadenbuie/tidyexplain](https://github.com/gadenbuie/tidyexplain)
-- Distill (theme for RMarkdown): https://rstudio.github.io/distill/
-- Google & [StackOverflow](https://stackoverflow.com/) are your best friends!
+- Distill (theme for RMarkdown): https://rstudio.github.io/distill
+- Google & [StackOverflow](https://stackoverflow.com) are your best friends!
