@@ -4,7 +4,7 @@
 [Overview](https://github.com/jananiravi/workshop-tidyverse/#overview) | [Learning Objectives](https://github.com/jananiravi/workshop-tidyverse/#learning-objectives) | [Setup](https://github.com/jananiravi/workshop-tidyverse/#setup) | [Credits](https://github.com/jananiravi/workshop-tidyverse/#credits) | [Contact](https://github.com/jananiravi/workshop-tidyverse/#contact) | [Additional Resources](https://github.com/jananiravi/workshop-tidyverse/#additional-resources)
 
 ### Next workshop
-- TBD
+- Dec 30, 2022 | [R@IISA](https://r-iisa2022.rbind.io/) as part of the biannual International Indian Statistical Association meeting | (with [Ayush Patel](//github.com/AyushBipinPatel))
 
 ### Past workshops
 [Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos)
