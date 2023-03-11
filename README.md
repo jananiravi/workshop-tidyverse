@@ -17,14 +17,13 @@ Resources](https://github.com/jananiravi/workshop-tidyverse/#additional-resource
 
 ### Past workshops
 
-[Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos) -
-2022: [International Society for Computational Biology, ISCB Academy
-Tutorial](https://www.iscb.org/iscbacademy) - 2021: R-Ladies Tunis,
-Africa - 2021: R-Ladies Bangalore, India - 2019: Indian Institute of
-Technology Madras (IITM) Chennai, India (w/ Praveena Mathews) -
-2019--2022: PBGB R seminar course (Spring of '19, '20, '22), Michigan
-State University - Other related ones: [R-Ladies East
-Lansing](https://github.com/rladies-eastlansing)
+[Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos)
+- 2022: [International Society for Computational Biology, ISCB Academy
+Tutorial](https://www.iscb.org/iscbacademy)
+- 2021: R-Ladies Tunis, Africa - 2021: R-Ladies Bangalore, India
+- 2019: Indian Institute of Technology Madras (IITM) Chennai, India (w/ Praveena Mathews)
+- 2019--2022: PBGB R seminar course (Spring of '19, '20, '22), Michigan State University
+- Other related ones: [R-Ladies East Lansing](https://github.com/rladies-eastlansing)
 
 ------------------------------------------------------------------------
 
