@@ -70,7 +70,7 @@ dataset, perform basic data tidying & wrangling, data visualization, and
 save/export your results using `tidyverse`! Hopefully, you will also
 have a newfound appreciation for reproducible research and R!
 
-<img src="https://github.com/jananiravi/workshop-tidyverse/blob/master/tidyverse-overview.png" width="50%" height="50%"/>
+<img src="https://github.com/jananiravi/workshop-tidyverse/blob/main/tidyverse-overview.png" width="50%" height="50%"/>
 
 ## Setup
 
