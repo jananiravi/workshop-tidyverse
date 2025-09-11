@@ -13,11 +13,11 @@ Resources](https://github.com/jananiravi/workshop-tidyverse/#additional-resource
 
 ### Next workshop
 
--   TBD
+-  2025: [Sep 12](https://www.meetup.com/rladies-aurora/events/310892519) / [Sep 19](https://www.meetup.com/rladies-aurora/events/310892588) | w/ [R-Ladies Aurora](https://www.meetup.com/rladies-aurora) and [PATH-GREU program](https://www.msudenver.edu/advanced-stem-education/genomics-research-experiences/) | co-hosted with [Harriet Dashnow](https://github.com/hdashnow)
 
 ### Past workshops
 
-[Videos](https://github.com/jananiravi/workshop-tidyverse/tree/master/videos)
+[Videos](https://github.com/jananiravi/workshop-tidyverse/tree/main/videos)
 - 2022: [International Society for Computational Biology, ISCB Academy
 Tutorial](https://www.iscb.org/iscbacademy)
 - 2021: R-Ladies Tunis, Africa - 2021: R-Ladies Bangalore, India
@@ -30,13 +30,8 @@ Tutorial](https://www.iscb.org/iscbacademy)
 ## Overview
 
 This repo contains the workshop material for using R/tidyverse to
-analyze & visualize diverse datasets, *e.g.,*
-[transcriptomics](https://github.com/jananiravi/workshop-tidyverse/tree/master/transcriptomics),
-[gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/master/gapminder)
-\| as HTML
-([transcriptomics](https://jananiravi.github.io/workshop-tidyverse/transcriptomics/workshop-tidyverse)
-&
-[gapminder](https://jananiravi.github.io/workshop-tidyverse/gapminder/workshop-tidyverse-gapminder)).
+analyze & visualize diverse datasets, *e.g.,* [transcriptomics](https://jananiravi.github.io/workshop-tidyverse/transcriptomics/workshop-tidyverse) & [gapminder](https://jananiravi.github.io/workshop-tidyverse/gapminder/workshop-tidyverse-gapminder) [material: [transcriptomics](https://github.com/jananiravi/workshop-tidyverse/tree/main/transcriptomics),
+[gapminder](https://github.com/jananiravi/workshop-tidyverse/tree/main/gapminder)].
 
 -   **Part 1: Getting started w/ `readr`**
     -   Installation and Setup \| Cheatsheets
@@ -84,10 +79,10 @@ have a newfound appreciation for reproducible research and R!
         [Download
         RStudio](https://www.rstudio.com/products/rstudio/download/) OR
         use [RStudio Cloud](https://rstudio.cloud)
-2.  Ensure that your version of **R** is `3.6+`. The latest version is
-    `4.2.0`. To check your R version, type in your console: `version`
-3.  Check your **RStudio** version. It should be `v1.3+` Open RStudio.
-    In the top menu bar click: RStudio \> About RStudio \>
+2.  Ensure that your version of **R** is `4.4+`. The latest version is
+    `4.5.1`. To check your R version, type in your console: `version`
+3.  Check your **RStudio** version. It should be `2025.05.1+513` or close! Open RStudio.
+    In the top menu bar, click: RStudio \> About RStudio \>
 4.  Install **tidyverse**, **here**, **gapminder** (not needed for
     transcriptomics workshop), **gganimate**: <br>
     `install.packages(c("tidyverse", "here", "gapminder"))` <br>
@@ -106,9 +101,9 @@ CRAN](https://cran.r-project.org/bin/windows/base/release.htm). Also,
 please install the [RStudio
 IDE](https://www.rstudio.com/products/rstudio/download/#download). Note
 that if you have separate user and admin accounts, you should run the
-installers as administrator (right-click on .exe file and select "Run as
-administrator" instead of double-clicking). Otherwise problems may occur
-later, for example when installing R packages.
+installers as administrator (right-click on `.exe` file and select "Run as
+administrator" instead of double-clicking). Otherwise, problems may occur
+later, for example, when installing R packages.
 
 #### For Mac Users
 
@@ -136,16 +131,16 @@ IDE](https://www.rstudio.com/products/rstudio/download/#download).
 transcriptomics part for this workshop; [R-Ladies East
 Lansing](https://rladies-eastlansing.github.io) members (Kayla J,
 Nafiseh H, Veronica F, Cara F, Camille A) and I helped with the
-gapminder material.
+`gapminder` material.
 
 ### Acknowledgements
 
 -   [Krishnan Lab](https://thekrishnanlab.org) \|
     [JRaviLab](https://jravilab.github.io)
--   [R-Ladies East Lansing](https://rladies-eastlansing.github.io),
+-   [R-Ladies East Lansing](https://meetup.com/rladies-eastlansing),
     incl. Nafiseh Haghtalab, Kayla Johnson, Veronica Frans, Cara
     Feldscher, Camille Archer
--   [R-Ladies Chennai](https://meetup.com/rladies-chennai) \| [R-Ladies
+-   [R-Ladies Aurora](https://meetup.com/rladies-aurora) \| [R-Ladies Chennai](https://meetup.com/rladies-chennai) \| [R-Ladies
     Bangalore](https://meetup.com/rladies-bangalore) \| [R-Ladies
     Tunis](https://meetup.com/rladies-tunis)
 
@@ -156,8 +151,8 @@ This work is licensed under a BSD-3-Clause License.
 ### Contributing
 
 -   If you like it, leave your star in this project 🌟
--   If you would like to suggest/contribute to this project, feel free
-    to open a issue 💟
+-   If you would like to suggest/contribute to this project, or request similar ones, feel free
+    to [open an issue](https://github.com/jananiravi/workshop-tidyverse/issues) 💟
 -   Please follow our contributing guidelines (coming soon!).
 
 ## Contact
@@ -165,12 +160,8 @@ This work is licensed under a BSD-3-Clause License.
 -   Webpage: [jravilab.github.io](https://jravilab.github.io) \|
     [thekrishnanlab.org](https://thekrishnanlab.org) \|
     [github.com/rladies-eastlansing](https://github.com/rladies-eastlansing)
--   Email: [janani\@msu.edu](mailto:janani@msu.edu){.email} \|
-    [arjun\@msu.edu](mailto:arjun@msu.edu){.email} \|
-    [eastlansing\@rladies.org](mailto:eastlansing@rladies.org){.email}
--   Twitter: [\@janani137](https://twitter.com/janani137) \|
-    [\@compbiologist](https://twitter.com/compbiologist) \|
-    [\@RLadiesELansing](https://twitter.com/RLadiesELansing)
+-   Email: [janani.ravi\@cuanschutz.edu](mailto:janani.ravi@cuanschutz.edu) \|
+    [arjun.krishnan\@cuanschutz.edu](mailto:arjun.krishnan@cuanschutz.edu)
 -   GitHub: [\@jananiravi](https://github.com/jananiravi) \|
     [\@arjunkrish](https://github.com/arjunkrish) \|
     [\@RLadies-EastLansing](https://github.com/rladies-eastlansing)
@@ -181,14 +172,14 @@ This work is licensed under a BSD-3-Clause License.
 
 -   You can access all relevant material pertaining to this workshop
     [here](https://jananiravi.github.io/workshop-tidyverse).
--   Other related [RLEL
+-   Other related [RLA](https://github.com/rladies-aurora) \| [RLEL
     workshops](http://github.com/rladies-eastlansing/meetup-presentations)
     & useful [cheatsheets](http://github.com/jananiravi/cheatsheets).
 -   [Computational Biology/Bioinformatics
     Resources](https://github.com/jananiravi/compbio-gists) collated by
-    Arjun and me.
+    Arjun and Janani.
 -   [Data-to-viz.com](https://www.data-to-viz.com) & [R Graph
-    Gallery](https://www.r-graph-gallery.com)
+    Gallery](https://www.r-graph-gallery.com) \| [Python Graph Gallery](https://python-graph-gallery.com)
 
 ### Some awesome open-source books
 
