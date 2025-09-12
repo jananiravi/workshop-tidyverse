@@ -5,20 +5,20 @@ description: |
 author:
   - name: Janani Ravi
     url: https://jravilab.github.io
-    affiliation: R-Ladies East Lansing | PDI @MSU
-    affiliation_url: https://rladies-eastlansing.github.io
+    affiliation: R-Ladies Aurora | DBMI @CU
+    affiliation_url: https://github.com/rladies-aurora
     orcid_id: 0000-0001-7443-925X
 date: "`r Sys.Date()`"
 output:
-  distill::distill_article:
-    toc: TRUE
-    toc_depth: 3
   html_document:
     toc: yes
     toc_depth: 3
     toc_float:
       collapsed: yes
       smooth_scroll: yes
+  distill::distill_article:
+    toc: TRUE
+    toc_depth: 3
 editor_options:
   chunk_output_type: console
 always_allow_html: true
@@ -35,14 +35,14 @@ knitr::opts_chunk$set(
 ```
 
 ### About me
-I am a computational biologist, an Asst. Professor in the department of Pathobiology & Diagnostic Investigation at Michigan State University.
+I am a computational biologist, an Asst. Professor in the Department of Biomedical Informatics at the University of Colorado Anschutz.
 In our group, we develop computational approaches to understand infectious disease biology.
 Check out my [webpage](https://jravilab.github.io) for more info.
 You can reach me [here](https://jravilab.github.io/#contact).
 
-I'm also the founder & co-organizer of the [R-Ladies East Lansing](https://rladies-eastlansing.github.io) group on campus.
+I'm also the founder of the [R-Ladies Aurora](https://github.com/rladies-aurora) group on campus.
 We conduct R-related workshops & meetups regularly!
-So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-eastlansing/events).
+So, do check out our upcoming events on [Meetup](https://meetup.com/rladies-aurora/events).
 
 # Part 1: Getting Started w/ `readr`
 You can access all relevant material pertaining to this workshop [here](https://github.com/jananiravi/tidyverse-genomics).
@@ -66,7 +66,7 @@ Use Help [Page #1](https://www.rstudio.com/products/rstudio/#Desktop) &
 ### Install R
 *... if you haven't already!*
 The RStudio startup message should specify your current local version of R.
-For _e.g.,_ `R v4.0.5`
+For _e.g.,_ `R v4.5`
 
 - [Download R](https://cran.r-project.org)
 - [*Update to the latest version of R?*](https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol)
@@ -574,13 +574,12 @@ write_delim(x=my_newly_formatted_data,
 
 ### Acknowledgements
 - [Krishnan Lab](https://thekrishnanlab.org) | [JRaviLab](https://jravilab.github.io)
-- [R-Ladies East Lansing](https://rladies-eastlansing.github.io), including Kayla Johnson, Nafiseh Haghtalab, Veronica Frans, Cara Feldscher
+- [R-Ladies Aurora](https://meetup.com/rladies-aurora) \| [R-Ladies East Lansing](https://meetup.com/rladies-eastlansing), including Kayla Johnson, Nafiseh Haghtalab, Veronica Frans, Cara Feldscher
 - [R-Ladies Chennai](https://meetup.com/rladies-chennai) | [R-Ladies Bangalore](https://meetup.com/rladies-bangalore) | [R-Ladies Tunis](https://meetup.com/rladies-tunis)
 
 ### Contact
 - Webpage: <https://jravilab.github.io> | <https://thekrishnanlab.org>
-- Email: <janani@msu.edu> | <arjun@msu.edu>
-- Twitter: [\@janani137](https://twitter.com/janani137) | [\@compbiologist](https://twitter.com/compbiologist)
+- Email: <janani.ravi@cuanschutz.edu> | <arjun.krishnan@cuanschutz.edu>
 - GitHub: [\@jananiravi](https://github.com/jananiravi) | [\@arjunkrish](https://github.com/arjunkrish)
 
 ## Additional resources {#refs}
