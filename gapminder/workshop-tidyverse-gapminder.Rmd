@@ -446,6 +446,7 @@ static_plot
 
 ```{r gapminder-gganimate, layout="l-body-outset", fig.width=5, fig.height=4, echo=TRUE, eval=T}
 library(gganimate)
+library(gifski)
 animated_plot <- ggplot(gapminder,
                         aes(gdpPercap, lifeExp,
                             size = pop, colour = country)) +
